@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
-
+    private Transform _cameraTransform;
     private Rigidbody _rb;
 
     private bool _isGrounded = true, _isDashing, _isInteracting;
@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _cameraTransform = Camera.main.transform;
     }
     private void Update()
     {
@@ -53,7 +54,8 @@ public class PlayerController : MonoBehaviour
     {
         if(_isDashing) return;
         Vector2 movement = InputManager.actionMap.PlayerInput.Movement.ReadValue<Vector2>();
-        Vector3 moveDirection = transform.forward * movement.y + transform.right * movement.x;
+        Vector3 cameraForwardNoY = new Vector3(_cameraTransform.forward.x, 0, _cameraTransform.forward.z);
+        Vector3 moveDirection = cameraForwardNoY * movement.y + _cameraTransform.right * movement.x;
         moveDirection = Vector3.Normalize(moveDirection);
         Vector3 velocity = moveDirection * _moveVelocity * Time.deltaTime;
         _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
@@ -78,7 +80,7 @@ public class PlayerController : MonoBehaviour
     private void Dash(InputAction.CallbackContext context)
     {
         if(_isDashing) return;
-        _rb.AddForce(transform.forward * _dashForce, ForceMode.Impulse);
+        _rb.AddForce(_cameraTransform.forward * _dashForce, ForceMode.Impulse);
         _isDashing = true;
     }
     private void DashCooldown()
