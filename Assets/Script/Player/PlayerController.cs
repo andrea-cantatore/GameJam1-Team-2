@@ -1,27 +1,33 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
+
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IPlayer
 {
+    [Header("General")]
+    
     private Transform _cameraTransform;
     private Rigidbody _rb;
-
-    private bool _isGrounded = true, _isDashing, _isInteracting;
-
-    [Header("Movement Forces")] 
+    private bool _isInteracting;
+    [SerializeField] private LayerMask _groundLayer;
+    
+    
+    [Header("Movement")] 
+    
     [SerializeField] private float _jumpForce = 300f;
-
     [SerializeField] private float _moveVelocity = 10f;
+    private bool _isGroundPounding;
+    [HideInInspector] public bool _isGroundPoundUnlocked;
     
     [Header("Dash values")] 
+    
     [SerializeField] private float _dashForce = 300f;
     [SerializeField] private float _dashCooldown = 1f;
     private float _dashTimer;
+    private bool _isDashing;
     
+    private bool IsGrounded => Physics.Raycast(transform.position, Vector3.down, 1.1f, _groundLayer);
     
     
     private void OnEnable()
@@ -29,12 +35,14 @@ public class PlayerController : MonoBehaviour
         InputManager.actionMap.PlayerInput.Jump.performed += Jump;
         InputManager.actionMap.PlayerInput.Dash.performed += Dash;
         InputManager.actionMap.PlayerInput.Interaction.performed += Interact;
+        InputManager.actionMap.PlayerInput.GroundPound.performed += GroundPound;
     }
     private void OnDisable()
     {
         InputManager.actionMap.PlayerInput.Jump.performed -= Jump;
         InputManager.actionMap.PlayerInput.Dash.performed -= Dash;
         InputManager.actionMap.PlayerInput.Interaction.performed -= Interact;
+        InputManager.actionMap.PlayerInput.GroundPound.performed -= GroundPound;
     }
 
     private void Awake()
@@ -44,10 +52,14 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        
         Move();
         if(_isDashing)
             DashCooldown();
+        if (_isGroundPounding)
+            _isGroundPounding = !IsGrounded;
+        
+        Debug.Log(_isGroundPoundUnlocked);
+
     }
 
     private void Move()
@@ -59,28 +71,25 @@ public class PlayerController : MonoBehaviour
         moveDirection = Vector3.Normalize(moveDirection);
         Vector3 velocity = moveDirection * _moveVelocity * Time.deltaTime;
         _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
+        if (movement != Vector2.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, Time.deltaTime * _moveVelocity);
+        }
     }
 
     private void Jump(InputAction.CallbackContext context)
     {
-        if (_isGrounded)
+        if (IsGrounded)
         {
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
-            _isGrounded = false;
-        }
-    }
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            _isGrounded = true;
         }
     }
 
     private void Dash(InputAction.CallbackContext context)
     {
         if(_isDashing) return;
-        _rb.AddForce(_cameraTransform.forward * _dashForce, ForceMode.Impulse);
+        _rb.AddForce(transform.forward * _dashForce, ForceMode.Impulse);
         _isDashing = true;
     }
     private void DashCooldown()
@@ -90,8 +99,27 @@ public class PlayerController : MonoBehaviour
         _isDashing = false;
         _dashTimer = 0;
     }
+    
+    private void GroundPound(InputAction.CallbackContext context)
+    {
+        if(!_isGroundPoundUnlocked || 
+           _isGroundPounding || 
+           IsGrounded) return;
+        
+        _isGroundPounding = true;
+        _rb.AddForce(Vector3.down * _jumpForce, ForceMode.Impulse);
+        if(_isDashing)
+            _isDashing = false;
+    }
 
     private void Interact(InputAction.CallbackContext context)
     {
     }
+
+    public void GroundPoundUnlock()
+    {
+        _isGroundPoundUnlocked = true;
+    }
 }
+
+
