@@ -64,6 +64,15 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""GroundPound"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""3df4dd8b-89b2-4846-8208-30f638b8f2e3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Interaction"",
                     ""type"": ""PassThrough"",
                     ""id"": ""353d6956-f9dc-4fd5-9525-73dbc4204e01"",
@@ -88,7 +97,18 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""id"": ""2e217830-b95b-4e58-a745-8ff3d9463687"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2(x=0.7,y=0.7)"",
+                    ""groups"": """",
+                    ""action"": ""Visual"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""372c9504-0d72-4b72-970e-e32f06fe4f48"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": ""ScaleVector2(x=5,y=5)"",
                     ""groups"": """",
                     ""action"": ""Visual"",
                     ""isComposite"": false,
@@ -129,6 +149,17 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""75918b73-599b-4bad-9868-00832b8b75a1"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""744fe532-4a64-4426-a655-70107345530e"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
@@ -142,6 +173,17 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""2fd7a630-0e8c-4046-9813-958c73f7ad6f"",
                     ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bfb98807-dca7-49b8-904a-a26d236a6cb9"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -236,6 +278,28 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1057bdc-dc4e-47be-805e-2ce01bf741cc"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GroundPound"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3044c0a9-013d-46f0-9af4-82727d05dc94"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GroundPound"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -287,6 +351,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         m_PlayerInput_Visual = m_PlayerInput.FindAction("Visual", throwIfNotFound: true);
         m_PlayerInput_Jump = m_PlayerInput.FindAction("Jump", throwIfNotFound: true);
         m_PlayerInput_Dash = m_PlayerInput.FindAction("Dash", throwIfNotFound: true);
+        m_PlayerInput_GroundPound = m_PlayerInput.FindAction("GroundPound", throwIfNotFound: true);
         m_PlayerInput_Interaction = m_PlayerInput.FindAction("Interaction", throwIfNotFound: true);
         m_PlayerInput_Pause = m_PlayerInput.FindAction("Pause", throwIfNotFound: true);
         // UI
@@ -357,6 +422,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInput_Visual;
     private readonly InputAction m_PlayerInput_Jump;
     private readonly InputAction m_PlayerInput_Dash;
+    private readonly InputAction m_PlayerInput_GroundPound;
     private readonly InputAction m_PlayerInput_Interaction;
     private readonly InputAction m_PlayerInput_Pause;
     public struct PlayerInputActions
@@ -367,6 +433,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         public InputAction @Visual => m_Wrapper.m_PlayerInput_Visual;
         public InputAction @Jump => m_Wrapper.m_PlayerInput_Jump;
         public InputAction @Dash => m_Wrapper.m_PlayerInput_Dash;
+        public InputAction @GroundPound => m_Wrapper.m_PlayerInput_GroundPound;
         public InputAction @Interaction => m_Wrapper.m_PlayerInput_Interaction;
         public InputAction @Pause => m_Wrapper.m_PlayerInput_Pause;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
@@ -390,6 +457,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
+            @GroundPound.started += instance.OnGroundPound;
+            @GroundPound.performed += instance.OnGroundPound;
+            @GroundPound.canceled += instance.OnGroundPound;
             @Interaction.started += instance.OnInteraction;
             @Interaction.performed += instance.OnInteraction;
             @Interaction.canceled += instance.OnInteraction;
@@ -412,6 +482,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
+            @GroundPound.started -= instance.OnGroundPound;
+            @GroundPound.performed -= instance.OnGroundPound;
+            @GroundPound.canceled -= instance.OnGroundPound;
             @Interaction.started -= instance.OnInteraction;
             @Interaction.performed -= instance.OnInteraction;
             @Interaction.canceled -= instance.OnInteraction;
@@ -487,6 +560,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         void OnVisual(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnGroundPound(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
     }
