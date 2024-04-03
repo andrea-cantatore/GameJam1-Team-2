@@ -7,11 +7,14 @@ using UnityEngine.InputSystem;
 public static class InputManager
 {
     public static ActionMap actionMap;
+
     
     static InputManager()
     {
         actionMap = new ActionMap();
         actionMap.Enable();
     }
+
+    
     
 }
