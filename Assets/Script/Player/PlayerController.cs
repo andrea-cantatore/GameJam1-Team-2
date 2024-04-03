@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 
 [RequireComponent(typeof(Rigidbody))]
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour, IPlayer
     [Header("Movement")] 
     
     [SerializeField] private float _jumpForce = 300f;
+    [SerializeField] private float _groundPoundForce = 300f;
     [SerializeField] private float _moveVelocity = 10f;
     private bool _isGroundPounding;
     [HideInInspector] public bool _isGroundPoundUnlocked;
@@ -23,9 +25,9 @@ public class PlayerController : MonoBehaviour, IPlayer
     [Header("Dash values")] 
     
     [SerializeField] private float _dashForce = 300f;
-    [SerializeField] private float _dashCooldown = 1f;
-    private float _dashTimer;
-    private bool _isDashing;
+    [SerializeField] private float _dashDuration = 1f, _dashCooldown = 2f;
+    private float _dashTimer, _dashCooldownTimer;
+    private bool _isDashing, _isDashingAirborne, _isDashUsable = true;
     
     private bool IsGrounded => Physics.Raycast(transform.position, Vector3.down, 1.1f, _groundLayer);
     
@@ -53,12 +55,10 @@ public class PlayerController : MonoBehaviour, IPlayer
     private void Update()
     {
         Move();
-        if(_isDashing)
+        if(!_isDashUsable)
             DashCooldown();
         if (_isGroundPounding)
             _isGroundPounding = !IsGrounded;
-        
-        Debug.Log(_isGroundPoundUnlocked);
 
     }
 
@@ -88,16 +88,40 @@ public class PlayerController : MonoBehaviour, IPlayer
 
     private void Dash(InputAction.CallbackContext context)
     {
-        if(_isDashing) return;
+        if(!_isDashUsable) return;
         _rb.AddForce(transform.forward * _dashForce, ForceMode.Impulse);
         _isDashing = true;
+        _isDashUsable = false;
+        _isDashingAirborne = !IsGrounded;
     }
     private void DashCooldown()
     {
-        _dashTimer += Time.deltaTime;
-        if(_dashTimer < _dashCooldown) return;
-        _isDashing = false;
-        _dashTimer = 0;
+        if (_isDashing)
+        {
+            _dashTimer += Time.deltaTime;
+            if (_dashTimer > _dashDuration)
+            {
+                _isDashing = false;
+                _dashTimer = 0;
+            }
+        }
+        if (_isDashingAirborne)
+        {
+            if (IsGrounded)
+            {
+                _isDashUsable = true;
+            }
+            
+            return;
+        }
+        
+        _dashCooldownTimer += Time.deltaTime;
+        if(_dashCooldownTimer > _dashCooldown)
+        {
+            _isDashUsable = true;
+            _dashCooldownTimer = 0;
+        }
+        
     }
     
     private void GroundPound(InputAction.CallbackContext context)
@@ -107,10 +131,10 @@ public class PlayerController : MonoBehaviour, IPlayer
            IsGrounded) return;
         
         _isGroundPounding = true;
-        _rb.AddForce(Vector3.down * _jumpForce, ForceMode.Impulse);
+        _rb.AddForce(Vector3.down * _groundPoundForce, ForceMode.Impulse);
         if(_isDashing)
             _isDashing = false;
-    }
+    } 
 
     private void Interact(InputAction.CallbackContext context)
     {
