@@ -129,6 +129,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c9995dab-2de2-431b-8828-30f273ebf9b8",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "744fe532-4a64-4426-a655-70107345530e",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -241,6 +252,17 @@
                     "name": "",
                     "id": "3044c0a9-013d-46f0-9af4-82727d05dc94",
                     "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroundPound",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17b35a23-f064-4763-9816-1f115446860a",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
