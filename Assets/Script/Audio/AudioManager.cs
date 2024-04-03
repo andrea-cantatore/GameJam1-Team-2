@@ -30,9 +30,9 @@ public class AudioManager : MonoBehaviour
 
     void LoadVolumes() // Volumes saved in VolumeSettings.cs
     {
-        float masterVolume = PlayerPrefs.GetFloat(MASTER_KEY, 1f);
-        float musicVolume = PlayerPrefs.GetFloat(MUSIC_KEY, 1f);
-        float sfxVolume = PlayerPrefs.GetFloat(SFX_KEY, 1f);
+        float masterVolume = PlayerPrefs.GetFloat(MASTER_KEY, 0.5f);
+        float musicVolume = PlayerPrefs.GetFloat(MUSIC_KEY, 0.5f);
+        float sfxVolume = PlayerPrefs.GetFloat(SFX_KEY, 0.5f);
 
         Mixer.SetFloat(VolumeSettings.MIXER_MASTER, Mathf.Log10(masterVolume) * 20); ;
         Mixer.SetFloat(VolumeSettings.MIXER_MUSIC, Mathf.Log10(musicVolume) *20);
