@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
 
     public void OnPauseMenu()
     {
-        HUD.SetActive(false);
+       // HUD.SetActive(false);
         SettingsMenu.SetActive(true);
         ControlsScreen.SetActive(false);
         EventSystem.current.SetSelectedGameObject(ControlsButton.gameObject);
@@ -56,7 +56,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenControlsScreen()
     {
-        HUD.SetActive(false);
+        //HUD.SetActive(false);
         SettingsMenu.SetActive(false);
         ControlsScreen.SetActive(true);
         EventSystem.current.SetSelectedGameObject(BackButton_InControls.gameObject);
@@ -65,7 +65,7 @@ public class UIManager : MonoBehaviour
     public void Resume()
     {
         UnPauseToggle();
-        HUD.SetActive(true);
+        //HUD.SetActive(true);
         SettingsMenu.SetActive(false);
         ControlsScreen.SetActive(false);
     }
