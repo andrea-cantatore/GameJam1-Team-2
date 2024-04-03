@@ -27,27 +27,17 @@ public class GameManager : MonoBehaviour
         {
             GameIsPaused = true;
             UIManager.OnPause?.Invoke();
-            //SwitchToUiInput();
             InputManager.SwitchToMenuInput();
         }
+            
         else
         {
             GameIsPaused = !GameIsPaused;
             UIManager.OnResume?.Invoke();
-            //SwitchToPlayerInput();
             InputManager.SwitchToPlayerInput();
         }
+            
         
     }
-    private static void SwitchToUiInput()
-    {
-        InputManager.actionMap.PlayerInput.Disable();
-        InputManager.actionMap.Menu.Enable();
-        
-    }
-    private void SwitchToPlayerInput()
-    {
-        InputManager.actionMap.Menu.Disable();
-        InputManager.actionMap.PlayerInput.Enable();
-    }
+    
 }

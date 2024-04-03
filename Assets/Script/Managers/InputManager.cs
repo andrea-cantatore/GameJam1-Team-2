@@ -18,10 +18,10 @@ public static class InputManager
 
     public static void SwitchToMenuInput()
     {
-        Debug.Log("CAMBIO A MENU");
+        
         actionMap.PlayerInput.Disable();
         actionMap.Menu.Enable();
-        if (actionMap.PlayerInput.enabled == false) Debug.Log("disattivata");
+        
     }
 
     public static void SwitchToPlayerInput()
