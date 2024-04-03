@@ -1,29 +1,37 @@
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
+    
+
+    bool GameIsPaused;
     private void OnEnable()
     {
-        InputManager.actionMap.PlayerInput.Pause.performed += Pause;
-        InputManager.actionMap.UI.Resume.performed += Pause;
+        UIManager.UnPauseToggle += () => GameIsPaused = false;
+        InputManager.actionMap.UI_Toggle.Toggle.performed += Pause;
     }
     
     private void OnDisable()
     {
-        InputManager.actionMap.PlayerInput.Pause.performed -= Pause;
-        InputManager.actionMap.UI.Resume.performed -= Pause;
+        
+        InputManager.actionMap.UI_Toggle.Toggle.performed -= Pause;
     }
 
     private void Pause(InputAction.CallbackContext context)
     {
-        if(InputManager.actionMap.PlayerInput.enabled)
+        
+        if(GameIsPaused == false)
         {
+            GameIsPaused = true;
+            UIManager.OnPause?.Invoke();
             SwitchToUiInput();
         }
         else
         {
+            GameIsPaused = !GameIsPaused;
+            UIManager.OnResume?.Invoke();
             SwitchToPlayerInput();
         }
         
@@ -31,11 +39,11 @@ public class GameManager : MonoBehaviour
     private static void SwitchToUiInput()
     {
         InputManager.actionMap.PlayerInput.Disable();
-        InputManager.actionMap.UI.Enable();
+        
     }
     private void SwitchToPlayerInput()
     {
-        InputManager.actionMap.UI.Disable();
+        
         InputManager.actionMap.PlayerInput.Enable();
     }
 }

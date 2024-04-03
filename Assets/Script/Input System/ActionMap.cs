@@ -80,15 +80,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""fe6104a1-6ce2-4dd2-ade0-d62f7a808599"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -259,28 +250,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a6ecda70-20d0-4742-844f-78f2fee1d502"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7bdf67ee-ab6c-4c29-be9c-0162f6152533"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""b1057bdc-dc4e-47be-805e-2ce01bf741cc"",
                     ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
@@ -304,11 +273,11 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""UI"",
+            ""name"": ""UI_Toggle"",
             ""id"": ""d12407e0-c32c-45e8-a71d-86329c408731"",
             ""actions"": [
                 {
-                    ""name"": ""Resume"",
+                    ""name"": ""Toggle"",
                     ""type"": ""Button"",
                     ""id"": ""b960366e-9757-4148-b3a7-5c897a0db695"",
                     ""expectedControlType"": ""Button"",
@@ -325,7 +294,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Resume"",
+                    ""action"": ""Toggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -336,7 +305,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Resume"",
+                    ""action"": ""Toggle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -353,10 +322,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         m_PlayerInput_Dash = m_PlayerInput.FindAction("Dash", throwIfNotFound: true);
         m_PlayerInput_GroundPound = m_PlayerInput.FindAction("GroundPound", throwIfNotFound: true);
         m_PlayerInput_Interaction = m_PlayerInput.FindAction("Interaction", throwIfNotFound: true);
-        m_PlayerInput_Pause = m_PlayerInput.FindAction("Pause", throwIfNotFound: true);
-        // UI
-        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Resume = m_UI.FindAction("Resume", throwIfNotFound: true);
+        // UI_Toggle
+        m_UI_Toggle = asset.FindActionMap("UI_Toggle", throwIfNotFound: true);
+        m_UI_Toggle_Toggle = m_UI_Toggle.FindAction("Toggle", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -424,7 +392,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInput_Dash;
     private readonly InputAction m_PlayerInput_GroundPound;
     private readonly InputAction m_PlayerInput_Interaction;
-    private readonly InputAction m_PlayerInput_Pause;
     public struct PlayerInputActions
     {
         private @ActionMap m_Wrapper;
@@ -435,7 +402,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         public InputAction @Dash => m_Wrapper.m_PlayerInput_Dash;
         public InputAction @GroundPound => m_Wrapper.m_PlayerInput_GroundPound;
         public InputAction @Interaction => m_Wrapper.m_PlayerInput_Interaction;
-        public InputAction @Pause => m_Wrapper.m_PlayerInput_Pause;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -463,9 +429,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @Interaction.started += instance.OnInteraction;
             @Interaction.performed += instance.OnInteraction;
             @Interaction.canceled += instance.OnInteraction;
-            @Pause.started += instance.OnPause;
-            @Pause.performed += instance.OnPause;
-            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerInputActions instance)
@@ -488,9 +451,6 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @Interaction.started -= instance.OnInteraction;
             @Interaction.performed -= instance.OnInteraction;
             @Interaction.canceled -= instance.OnInteraction;
-            @Pause.started -= instance.OnPause;
-            @Pause.performed -= instance.OnPause;
-            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerInputActions instance)
@@ -509,51 +469,51 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     }
     public PlayerInputActions @PlayerInput => new PlayerInputActions(this);
 
-    // UI
-    private readonly InputActionMap m_UI;
-    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-    private readonly InputAction m_UI_Resume;
-    public struct UIActions
+    // UI_Toggle
+    private readonly InputActionMap m_UI_Toggle;
+    private List<IUI_ToggleActions> m_UI_ToggleActionsCallbackInterfaces = new List<IUI_ToggleActions>();
+    private readonly InputAction m_UI_Toggle_Toggle;
+    public struct UI_ToggleActions
     {
         private @ActionMap m_Wrapper;
-        public UIActions(@ActionMap wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Resume => m_Wrapper.m_UI_Resume;
-        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public UI_ToggleActions(@ActionMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Toggle => m_Wrapper.m_UI_Toggle_Toggle;
+        public InputActionMap Get() { return m_Wrapper.m_UI_Toggle; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
-        public void AddCallbacks(IUIActions instance)
+        public static implicit operator InputActionMap(UI_ToggleActions set) { return set.Get(); }
+        public void AddCallbacks(IUI_ToggleActions instance)
         {
-            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-            @Resume.started += instance.OnResume;
-            @Resume.performed += instance.OnResume;
-            @Resume.canceled += instance.OnResume;
+            if (instance == null || m_Wrapper.m_UI_ToggleActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UI_ToggleActionsCallbackInterfaces.Add(instance);
+            @Toggle.started += instance.OnToggle;
+            @Toggle.performed += instance.OnToggle;
+            @Toggle.canceled += instance.OnToggle;
         }
 
-        private void UnregisterCallbacks(IUIActions instance)
+        private void UnregisterCallbacks(IUI_ToggleActions instance)
         {
-            @Resume.started -= instance.OnResume;
-            @Resume.performed -= instance.OnResume;
-            @Resume.canceled -= instance.OnResume;
+            @Toggle.started -= instance.OnToggle;
+            @Toggle.performed -= instance.OnToggle;
+            @Toggle.canceled -= instance.OnToggle;
         }
 
-        public void RemoveCallbacks(IUIActions instance)
+        public void RemoveCallbacks(IUI_ToggleActions instance)
         {
-            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_UI_ToggleActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IUIActions instance)
+        public void SetCallbacks(IUI_ToggleActions instance)
         {
-            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_UI_ToggleActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_UI_ToggleActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public UIActions @UI => new UIActions(this);
+    public UI_ToggleActions @UI_Toggle => new UI_ToggleActions(this);
     public interface IPlayerInputActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -562,10 +522,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnGroundPound(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
     }
-    public interface IUIActions
+    public interface IUI_ToggleActions
     {
-        void OnResume(InputAction.CallbackContext context);
+        void OnToggle(InputAction.CallbackContext context);
     }
 }

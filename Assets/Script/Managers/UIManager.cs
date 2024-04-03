@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     // Events
     public static Action OnPause;
     public static Action OnResume;
+    public delegate void GameState();
+    public static event GameState UnPauseToggle;
 
     // References
     [Header("Screens References")]
@@ -41,14 +43,7 @@ public class UIManager : MonoBehaviour
         ControlsScreen.SetActive(false);
     }
 
-    private void Update()
-    {
-        // for testing
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            OnPauseMenu();
-        }
-    }
+    
 
     public void OnPauseMenu()
     {
@@ -69,6 +64,7 @@ public class UIManager : MonoBehaviour
 
     public void Resume()
     {
+        UnPauseToggle();
         HUD.SetActive(true);
         SettingsMenu.SetActive(false);
         ControlsScreen.SetActive(false);

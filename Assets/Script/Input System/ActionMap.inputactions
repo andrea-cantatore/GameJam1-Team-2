@@ -58,15 +58,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "fe6104a1-6ce2-4dd2-ade0-d62f7a808599",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -237,28 +228,6 @@
                 },
                 {
                     "name": "",
-                    "id": "a6ecda70-20d0-4742-844f-78f2fee1d502",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7bdf67ee-ab6c-4c29-be9c-0162f6152533",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b1057bdc-dc4e-47be-805e-2ce01bf741cc",
                     "path": "<Keyboard>/ctrl",
                     "interactions": "",
@@ -282,11 +251,11 @@
             ]
         },
         {
-            "name": "UI",
+            "name": "UI_Toggle",
             "id": "d12407e0-c32c-45e8-a71d-86329c408731",
             "actions": [
                 {
-                    "name": "Resume",
+                    "name": "Toggle",
                     "type": "Button",
                     "id": "b960366e-9757-4148-b3a7-5c897a0db695",
                     "expectedControlType": "Button",
@@ -303,7 +272,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Resume",
+                    "action": "Toggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -314,7 +283,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Resume",
+                    "action": "Toggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
