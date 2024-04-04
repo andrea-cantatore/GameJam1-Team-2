@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
 
     public void OnPauseMenu()
     {
-       // HUD.SetActive(false);
+        CameraBlur.OnBlurBg?.Invoke();
         SettingsMenu.SetActive(true);
         ControlsScreen.SetActive(false);
         EventSystem.current.SetSelectedGameObject(ControlsButton.gameObject);
@@ -64,8 +64,8 @@ public class UIManager : MonoBehaviour
 
     public void Resume()
     {
+        CameraBlur.OnBlurOff?.Invoke();
         UnPauseToggle();
-        //HUD.SetActive(true);
         SettingsMenu.SetActive(false);
         ControlsScreen.SetActive(false);
     }
