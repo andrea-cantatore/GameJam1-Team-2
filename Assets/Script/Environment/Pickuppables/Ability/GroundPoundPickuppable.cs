@@ -4,10 +4,10 @@ public class GroundPoundPickuppable : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("GroundPoundPickuppable");
         if (other.TryGetComponent(out IPlayer playerInterface))
         {
-            playerInterface.GroundPoundUnlock();
+            Debug.Log("GroundPound Unlocked!");
+            EventManager.OnGroundPoundUnlock?.Invoke(true);
             Destroy(gameObject);
         }
     }

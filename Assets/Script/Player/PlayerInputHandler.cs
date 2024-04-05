@@ -16,35 +16,35 @@ public class PlayerInputHandler : MonoBehaviour, IPlayer
     }
     private void OnEnable()
     {
-        InputManager.actionMap.PlayerInput.Jump.performed += Jump;
-        InputManager.actionMap.PlayerInput.Dash.performed += Dash;
+        InputManager.actionMap.PlayerInput.Jump.started += Jump;
+        InputManager.actionMap.PlayerInput.Dash.started += Dash;
         InputManager.actionMap.PlayerInput.Interaction.performed += Interact;
         InputManager.actionMap.PlayerInput.GroundPound.performed += GroundPound;
+        EventManager.OnDoubleJumpUnlock += DoubleJumpUnlock;
+        EventManager.OnGroundPoundUnlock += GroundPoundUnlock;
+        EventManager.OnDoubleDashUnlock += DoubleDashUnlock;
     }
     private void OnDisable()
     {
-        InputManager.actionMap.PlayerInput.Jump.performed -= Jump;
-        InputManager.actionMap.PlayerInput.Dash.performed -= Dash;
+        InputManager.actionMap.PlayerInput.Jump.started -= Jump;
+        InputManager.actionMap.PlayerInput.Dash.started -= Dash;
         InputManager.actionMap.PlayerInput.Interaction.performed -= Interact;
         InputManager.actionMap.PlayerInput.GroundPound.performed -= GroundPound;
+        EventManager.OnDoubleJumpUnlock -= DoubleJumpUnlock;
+        EventManager.OnGroundPoundUnlock -= GroundPoundUnlock;
+        EventManager.OnDoubleDashUnlock -= DoubleDashUnlock;
     }
     private void Jump(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            _playerController.Jump();
-        }
+        _playerController.Jump(_isDoubleJumpUnlocked);
     }
     
     private void Dash(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            if(_isDoubleDashUnlocked)
-                _playerController.DoubleDash();
-            else
-                _playerController.Dash();
-        }
+        if(_isDoubleDashUnlocked)
+            _playerController.DoubleDash();
+        else
+            _playerController.Dash();
     }
     
     private void GroundPound(UnityEngine.InputSystem.InputAction.CallbackContext context)
@@ -57,16 +57,17 @@ public class PlayerInputHandler : MonoBehaviour, IPlayer
     {
     }
 
-    public void GroundPoundUnlock()
+    private void GroundPoundUnlock(bool isUnlocked)
     {
-        _isGroundPoundUnlocked = true;
+        _isGroundPoundUnlocked = isUnlocked;
     }
-    public void DoubleJumpUnlock()
+    private void DoubleJumpUnlock(bool isUnlocked)
     {
-        _isDoubleJumpUnlocked = true;
+        _isDoubleJumpUnlocked = isUnlocked;
     }
-    public void DoubleDashUnlock()
+
+    private void DoubleDashUnlock(bool isUnlocked)
     {
-        //_isDoubleDashUnlocked = true; DON'T UNCOMMENT THIS LINE YET I NEED TO FIX THE DOUBLE DASH FIRST
+        _isDoubleDashUnlocked = isUnlocked; 
     }
 }

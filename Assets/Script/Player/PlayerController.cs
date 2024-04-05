@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _groundPoundForce = 300f;
     [SerializeField] private float _moveVelocity = 10f;
     private bool _isGroundPounding;
-
+    private bool _isDoubleJumping;
     [Header("Dash values")] [SerializeField]
     private float _dashForce = 300f;
 
@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Move();
+        
         if (!_isDashUsable || _isDoubleDashing)
             DashCooldown();
         if (_isGroundPounding)
@@ -57,11 +58,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Jump()
+    public void Jump(bool UnlockedDoubleJump)
     {
         if (IsGrounded)
         {
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+            _isDoubleJumping = false;
+        }
+        else if(!_isDoubleJumping && UnlockedDoubleJump)
+        {
+            if(_rb.velocity.y < 0)
+                _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
+            
+            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+            _isDoubleJumping = true;
         }
     }
     
