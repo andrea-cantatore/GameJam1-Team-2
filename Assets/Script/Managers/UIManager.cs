@@ -20,8 +20,8 @@ public class UIManager : MonoBehaviour
     [Header("Buttons References")]
     [SerializeField] RectTransform ControlsButton;
     [SerializeField] RectTransform BackButton_InControls;
-    [Header("Shown for debug")]
-    bool inPauseState;
+    
+    
     
 
 

@@ -18,6 +18,8 @@ public class PlayerInputHandler : MonoBehaviour, IPlayer
         InputManager.actionMap.PlayerInput.Dash.started += Dash;
         InputManager.actionMap.PlayerInput.Interaction.performed += Interact;
         InputManager.actionMap.PlayerInput.GroundPound.performed += GroundPound;
+        InputManager.actionMap.PlayerInput.Restart.started += ResetStarted;
+        InputManager.actionMap.PlayerInput.Restart.canceled += ResetCanceled;
         EventManager.OnDoubleJumpUnlock += DoubleJumpUnlock;
         EventManager.OnGroundPoundUnlock += GroundPoundUnlock;
         EventManager.OnDoubleDashUnlock += DoubleDashUnlock;
@@ -68,4 +70,16 @@ public class PlayerInputHandler : MonoBehaviour, IPlayer
     {
         _isDoubleDashUnlocked = isUnlocked; 
     }
+
+    void ResetStarted(UnityEngine.InputSystem.InputAction.CallbackContext reset)
+    {
+        EventManager.OnReset?.Invoke();
+    }
+
+    void ResetCanceled(UnityEngine.InputSystem.InputAction.CallbackContext nullReset)
+    {
+        EventManager.OnResetCanceled?.Invoke();
+    }
+
+
 }
