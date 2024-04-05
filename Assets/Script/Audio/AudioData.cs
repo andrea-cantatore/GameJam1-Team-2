@@ -6,30 +6,30 @@ using UnityEngine;
 public class AudioData : ScriptableObject
 {
     [Header("Player Sounds")]
-    [SerializeField] public AudioClip walkingSound;
-    [SerializeField] public AudioClip jumpSound;
-    [SerializeField] public AudioClip landingSound;
-    [SerializeField] public AudioClip dashSound;
-    [SerializeField] public AudioClip groundPoundSound;
+    [SerializeField] public AudioClip sfx_walkingSound;
+    [SerializeField] public AudioClip sfx_jumpSound;
+    [SerializeField] public AudioClip sfx_landingSound;
+    [SerializeField] public AudioClip sfx_dashSound;
+    [SerializeField] public AudioClip sfx_groundPoundSound;
     [Header("Environment Sounds")]
-    [SerializeField] public AudioClip lavaSound;
-    [SerializeField] public AudioClip voidSound;
-    [SerializeField] public AudioClip spikeSound;
-    [SerializeField] public AudioClip dartsSound;
-    [SerializeField] public AudioClip fireBreathSound;
-    [SerializeField] public AudioClip openingDoorSound;
-    [SerializeField] public AudioClip openingLockSound;
-    [SerializeField] public AudioClip pushingCrateSound;
-    [SerializeField] public AudioClip leverSound;
-    [SerializeField] public AudioClip buttonSound;
-    [SerializeField] public AudioClip floorSwitchSound;
-    [SerializeField] public AudioClip timerSound;
-    [SerializeField] public AudioClip pickupSound;
+    [SerializeField] public AudioClip sfx_lavaSound;
+    [SerializeField] public AudioClip sfx_voidSound;
+    [SerializeField] public AudioClip sfx_spikeSound;
+    [SerializeField] public AudioClip sfx_dartsSound;
+    [SerializeField] public AudioClip sfx_fireBreathSound;
+    [SerializeField] public AudioClip sfx_openingDoorSound;
+    [SerializeField] public AudioClip sfx_openingLockSound;
+    [SerializeField] public AudioClip sfx_pushingCrateSound;
+    [SerializeField] public AudioClip sfx_leverSound;
+    [SerializeField] public AudioClip sfx_buttonSound;
+    [SerializeField] public AudioClip sfx_floorSwitchSound;
+    [SerializeField] public AudioClip sfx_timerSound;
+    [SerializeField] public AudioClip sfx_pickupSound;
     [Header("Event Sounds")]
-    [SerializeField] public AudioClip deathSound;
-    [SerializeField] public AudioClip victorySound;
-    [SerializeField] public AudioClip looseSound;
-    public int prova;
+    [SerializeField] public AudioClip sfx_deathSound;
+    [SerializeField] public AudioClip sfx_victorySound;
+    [SerializeField] public AudioClip sfx_looseSound;
+    
 
 
 }

@@ -9,7 +9,7 @@ public class DashPickuppable : MonoBehaviour
 
     private void Awake()
     {
-         clip = AudioData.pickupSound;
+         clip = AudioData.sfx_pickupSound;
     }
     private void OnTriggerEnter(Collider other)
     {
