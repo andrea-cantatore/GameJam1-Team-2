@@ -80,6 +80,15 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""07c5df5a-7f2f-4ebd-8193-ec0529bd2ab7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -280,6 +289,28 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
                     ""action"": ""GroundPound"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f8a94b1a-9058-4665-b863-9f6796062ca6"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8dfc485-2802-484c-a46c-ed0805c24b6a"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -425,6 +456,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         m_PlayerInput_Dash = m_PlayerInput.FindAction("Dash", throwIfNotFound: true);
         m_PlayerInput_GroundPound = m_PlayerInput.FindAction("GroundPound", throwIfNotFound: true);
         m_PlayerInput_Interaction = m_PlayerInput.FindAction("Interaction", throwIfNotFound: true);
+        m_PlayerInput_Restart = m_PlayerInput.FindAction("Restart", throwIfNotFound: true);
         // UI_Toggle
         m_UI_Toggle = asset.FindActionMap("UI_Toggle", throwIfNotFound: true);
         m_UI_Toggle_Toggle = m_UI_Toggle.FindAction("Toggle", throwIfNotFound: true);
@@ -499,6 +531,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInput_Dash;
     private readonly InputAction m_PlayerInput_GroundPound;
     private readonly InputAction m_PlayerInput_Interaction;
+    private readonly InputAction m_PlayerInput_Restart;
     public struct PlayerInputActions
     {
         private @ActionMap m_Wrapper;
@@ -509,6 +542,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         public InputAction @Dash => m_Wrapper.m_PlayerInput_Dash;
         public InputAction @GroundPound => m_Wrapper.m_PlayerInput_GroundPound;
         public InputAction @Interaction => m_Wrapper.m_PlayerInput_Interaction;
+        public InputAction @Restart => m_Wrapper.m_PlayerInput_Restart;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -536,6 +570,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @Interaction.started += instance.OnInteraction;
             @Interaction.performed += instance.OnInteraction;
             @Interaction.canceled += instance.OnInteraction;
+            @Restart.started += instance.OnRestart;
+            @Restart.performed += instance.OnRestart;
+            @Restart.canceled += instance.OnRestart;
         }
 
         private void UnregisterCallbacks(IPlayerInputActions instance)
@@ -558,6 +595,9 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
             @Interaction.started -= instance.OnInteraction;
             @Interaction.performed -= instance.OnInteraction;
             @Interaction.canceled -= instance.OnInteraction;
+            @Restart.started -= instance.OnRestart;
+            @Restart.performed -= instance.OnRestart;
+            @Restart.canceled -= instance.OnRestart;
         }
 
         public void RemoveCallbacks(IPlayerInputActions instance)
@@ -683,6 +723,7 @@ public partial class @ActionMap: IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnGroundPound(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
     }
     public interface IUI_ToggleActions
     {
