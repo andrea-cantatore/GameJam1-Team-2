@@ -38,4 +38,21 @@ public class AudioManager : MonoBehaviour
         Mixer.SetFloat(VolumeSettings.MIXER_MUSIC, Mathf.Log10(musicVolume) *20);
         Mixer.SetFloat(VolumeSettings.MIXER_SFX, Mathf.Log10(sfxVolume) *20);
     }
+
+    public void PlaySFX( AudioClip clip, Transform playPosition )
+    { 
+        AudioSource audioSource = ObjectPooler.SharedInstance.GetPooledObject().GetComponent<AudioSource>();
+        audioSource.clip = clip;
+        audioSource.gameObject.transform.position = playPosition.position;
+        audioSource.gameObject.SetActive(true);
+        audioSource.Play();
+        StartCoroutine(DeactivationTimer(audioSource.gameObject, audioSource.clip.length));
+    }
+
+ 
+    IEnumerator DeactivationTimer(GameObject obj, float time)
+    {
+        yield return new WaitForSeconds(time);
+        obj.SetActive(false);
+    }
 }

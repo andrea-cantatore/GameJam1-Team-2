@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca963e89358954489f8f531616ca875, type: 3}
+  m_Name: AudioDatabase
+  m_EditorClassIdentifier: 
+  walkingSound: {fileID: 0}
+  jumpSound: {fileID: 0}
+  landingSound: {fileID: 0}
+  dashSound: {fileID: 0}
+  groundPoundSound: {fileID: 0}
+  lavaSound: {fileID: 0}
+  voidSound: {fileID: 0}
+  spikeSound: {fileID: 0}
+  dartsSound: {fileID: 0}
+  fireBreathSound: {fileID: 0}
+  openingDoorSound: {fileID: 0}
+  openingLockSound: {fileID: 0}
+  pushingCrateSound: {fileID: 0}
+  leverSound: {fileID: 0}
+  buttonSound: {fileID: 0}
+  floorSwitchSound: {fileID: 0}
+  timerSound: {fileID: 0}
+  pickupSound: {fileID: 8300000, guid: 4afffbeb723a1094dbd96c1afe0c6033, type: 3}
+  deathSound: {fileID: 0}
+  victorySound: {fileID: 0}
+  looseSound: {fileID: 0}
