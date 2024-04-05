@@ -13,7 +13,12 @@ public class EventManager : MonoBehaviour
     public static Action<bool> OnGroundPoundUnlock;
 
     // Reset event
-    public static Action OnReset;
+    public static Action OnResetStarted;
     public static Action OnResetCanceled;
-    
+    public static Action OnResetCompleted;
+
+    public static Action OnPause;
+    public static Action OnResume;
+    public static Action UnPauseToggle;
+
 }

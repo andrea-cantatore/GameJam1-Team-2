@@ -73,7 +73,7 @@ public class PlayerInputHandler : MonoBehaviour, IPlayer
 
     void ResetStarted(UnityEngine.InputSystem.InputAction.CallbackContext reset)
     {
-        EventManager.OnReset?.Invoke();
+        EventManager.OnResetStarted?.Invoke();
     }
 
     void ResetCanceled(UnityEngine.InputSystem.InputAction.CallbackContext nullReset)
