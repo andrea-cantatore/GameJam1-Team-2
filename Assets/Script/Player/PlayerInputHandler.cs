@@ -80,6 +80,5 @@ public class PlayerInputHandler : MonoBehaviour, IPlayer
     {
         EventManager.OnResetCanceled?.Invoke();
     }
-
-
+    
 }

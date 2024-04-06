@@ -18,8 +18,7 @@ public class DashPickuppable : MonoBehaviour
             Debug.Log("Double dash unlocked!");
             EventManager.OnDoubleDashUnlock?.Invoke(true);
             AudioManager.instance.PlaySFX(clip, transform);
-            Destroy(gameObject);
-            
+            transform.position = new Vector3(0, -100, 0);
         }
     }
             
