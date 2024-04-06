@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     bool GameIsPaused;
     private void OnEnable()
     {
-        UIManager.UnPauseToggle += () => GameIsPaused = false;
+        EventManager.UnPauseToggle += () => GameIsPaused = false;
         InputManager.actionMap.UI_Toggle.Toggle.performed += Pause;
         InputManager.actionMap.Menu.Disable();
         EventManager.OnResetStarted += ResetStarted;
@@ -48,14 +48,14 @@ public class GameManager : MonoBehaviour
         if(GameIsPaused == false)
         {
             GameIsPaused = true;
-            UIManager.OnPause?.Invoke();
+            EventManager.OnPause?.Invoke();
             InputManager.SwitchToMenuInput();
         }
             
         else
         {
             GameIsPaused = !GameIsPaused;
-            UIManager.OnResume?.Invoke();
+            EventManager.OnResume?.Invoke();
             InputManager.SwitchToPlayerInput();
         }
     }
