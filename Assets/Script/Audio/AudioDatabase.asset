@@ -12,24 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca963e89358954489f8f531616ca875, type: 3}
   m_Name: AudioDatabase
   m_EditorClassIdentifier: 
-  walkingSound: {fileID: 0}
-  jumpSound: {fileID: 0}
-  landingSound: {fileID: 0}
-  dashSound: {fileID: 0}
-  groundPoundSound: {fileID: 0}
-  lavaSound: {fileID: 0}
-  voidSound: {fileID: 0}
-  spikeSound: {fileID: 0}
-  dartsSound: {fileID: 0}
-  fireBreathSound: {fileID: 0}
-  openingDoorSound: {fileID: 0}
-  openingLockSound: {fileID: 0}
-  pushingCrateSound: {fileID: 0}
-  leverSound: {fileID: 0}
-  buttonSound: {fileID: 0}
-  floorSwitchSound: {fileID: 0}
-  timerSound: {fileID: 0}
-  pickupSound: {fileID: 8300000, guid: 4afffbeb723a1094dbd96c1afe0c6033, type: 3}
-  deathSound: {fileID: 0}
-  victorySound: {fileID: 0}
-  looseSound: {fileID: 0}
+  sfx_walkingSound: {fileID: 0}
+  sfx_jumpSound: {fileID: 0}
+  sfx_landingSound: {fileID: 0}
+  sfx_dashSound: {fileID: 0}
+  sfx_groundPoundSound: {fileID: 0}
+  sfx_lavaSound: {fileID: 0}
+  sfx_voidSound: {fileID: 0}
+  sfx_spikeSound: {fileID: 0}
+  sfx_dartsSound: {fileID: 0}
+  sfx_fireBreathSound: {fileID: 0}
+  sfx_openingDoorSound: {fileID: 0}
+  sfx_openingLockSound: {fileID: 0}
+  sfx_pushingCrateSound: {fileID: 0}
+  sfx_leverSound: {fileID: 0}
+  sfx_buttonSound: {fileID: 0}
+  sfx_floorSwitchSound: {fileID: 0}
+  sfx_timerSound: {fileID: 0}
+  sfx_pickupSound: {fileID: 8300000, guid: 4afffbeb723a1094dbd96c1afe0c6033, type: 3}
+  sfx_deathSound: {fileID: 0}
+  sfx_victorySound: {fileID: 0}
+  sfx_looseSound: {fileID: 0}

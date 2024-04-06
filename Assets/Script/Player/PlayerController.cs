@@ -1,3 +1,5 @@
+using System;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -10,19 +12,21 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rb;
     private bool _isInteracting;
     [SerializeField] private LayerMask _groundLayer;
-    
+    [SerializeField] private LayerMask _pushableLayer;
+    [SerializeField] private int _hp = 3;
 
     [Header("Movement")] [SerializeField] private float _jumpForce = 300f;
     [SerializeField] private float _groundPoundForce = 300f;
     [SerializeField] private float _moveVelocity = 10f;
     private bool _isGroundPounding;
     private bool _isDoubleJumping;
+
     [Header("Dash values")] [SerializeField]
     private float _dashForce = 300f;
 
-    [SerializeField] private float _dashDuration = 1f, _dashCooldown = 2f;
-    private float _dashTimer, _dash2Timer, _dashCooldownTimer;
-    private bool _isDashing, _isDashingAirborne, _isDashUsable = true, _isDoubleDashing;
+    [SerializeField] private float _dashDuration = 1f, _dashCooldown = 2f, _hiFrameDuration = 2f, _hiFrameCooldown = 5f;
+    private float _dashTimer, _dash2Timer, _dashCooldownTimer, _hiFrameTimer;
+    private bool _isDashing, _isDashingAirborne, _isDashUsable = true, _isDoubleDashing, _isHiFrame, _isHiFrameUsable;
 
     private bool IsGrounded => Physics.Raycast(transform.position, Vector3.down, 1.1f, _groundLayer);
 
@@ -31,14 +35,24 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _cameraTransform = Camera.main.transform;
     }
+    private void OnEnable()
+    {
+        EventManager.OnPlayerChangeHp += ChangeHp;
+    }
+    private void OnDisable()
+    {
+        EventManager.OnPlayerChangeHp -= ChangeHp;
+    }
     private void Update()
     {
         Move();
-        
+
         if (!_isDashUsable || _isDoubleDashing)
             DashCooldown();
         if (_isGroundPounding)
             _isGroundPounding = !IsGrounded;
+        if (!_isHiFrameUsable)
+            HiFrameCooldown();
     }
 
     private void Move()
@@ -49,6 +63,10 @@ public class PlayerController : MonoBehaviour
         Vector3 cameraForwardNoY = new Vector3(_cameraTransform.forward.x, 0, _cameraTransform.forward.z);
         Vector3 moveDirection = cameraForwardNoY * movement.y + _cameraTransform.right * movement.x;
         moveDirection = Vector3.Normalize(moveDirection);
+
+        if (!PushableChecker(moveDirection))
+            return;
+
         Vector3 velocity = moveDirection * _moveVelocity * Time.deltaTime;
         _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
         if (movement != Vector2.zero)
@@ -65,16 +83,16 @@ public class PlayerController : MonoBehaviour
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
             _isDoubleJumping = false;
         }
-        else if(!_isDoubleJumping && UnlockedDoubleJump)
+        else if (!_isDoubleJumping && UnlockedDoubleJump)
         {
-            if(_rb.velocity.y < 0)
+            if (_rb.velocity.y < 0)
                 _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
-            
+
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
             _isDoubleJumping = true;
         }
     }
-    
+
     public void Dash()
     {
         if (!_isDashUsable) return;
@@ -96,7 +114,7 @@ public class PlayerController : MonoBehaviour
             _rb.AddForce(transform.forward * _dashForce, ForceMode.Impulse);
             _isDoubleDashing = true;
         }
-        
+
         _isDashingAirborne = !IsGrounded;
     }
     private void DashCooldown()
@@ -137,6 +155,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void HiFrameCooldown()
+    {
+        _hiFrameTimer += Time.deltaTime;
+        if (_hiFrameTimer > _hiFrameDuration)
+        {
+            _isHiFrame = false;
+        }
+        if(_hiFrameTimer > _hiFrameCooldown)
+        {
+            _isHiFrameUsable = true;
+            _hiFrameTimer = 0;
+        }
+        
+    }
+
     public void GroundPound()
     {
         if (_isGroundPounding || IsGrounded) return;
@@ -146,6 +179,25 @@ public class PlayerController : MonoBehaviour
         if (_isDashing)
             _isDashing = false;
     }
+    private bool PushableChecker(Vector3 direction)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, direction, out hit, 1.5f, _pushableLayer))
+        {
+            if (Physics.Raycast(hit.transform.position, direction, 0.6f))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     
-    
+    private void ChangeHp(int value)
+    {
+        _hp += value;
+        if(_hp <= 0)
+            EventManager.OnPlayerDeath?.Invoke();
+        if(value < 0)
+            EventManager.OnReset?.Invoke();
+    }
 }

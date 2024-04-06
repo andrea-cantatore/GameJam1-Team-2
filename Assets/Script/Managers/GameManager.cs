@@ -29,11 +29,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(_isGameResetting)
+        if(_isGameResetting && !GameIsPaused)
         {
             _resetTimer += Time.deltaTime;
             if(_resetTimer >= _resetDuration)
             {
+                Debug.Log("Resetting");
                 EventManager.OnReset?.Invoke();
                 _isGameResetting = false;
                 _resetTimer = 0;
@@ -61,11 +62,13 @@ public class GameManager : MonoBehaviour
     
     private void ResetStarted()
     {
+        Debug.Log("Reset Started");
         _isGameResetting = true;
     }
     
 private void ResetCanceled()
     {
+        Debug.Log("Reset Canceled");
         _isGameResetting = false;
         _resetTimer = 0;
     }

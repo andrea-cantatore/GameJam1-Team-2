@@ -16,7 +16,7 @@ public class GroundPoundPickuppable : MonoBehaviour
             Debug.Log("GroundPound Unlocked!");
             EventManager.OnGroundPoundUnlock?.Invoke(true);
             AudioManager.instance.PlaySFX(clip, transform);
-            Destroy(gameObject);
+            transform.position = new Vector3(0, -100, 0);
         }
     }
 }

@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    
-    
+    //Player Events
+    public static Action OnPlayerDeath;
+    public static Action<int> OnPlayerChangeHp;
     
     
     // Pickuppable Events
