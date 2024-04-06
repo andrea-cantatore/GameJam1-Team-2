@@ -16,7 +16,7 @@ public class EventManager : MonoBehaviour
     // Reset event
     public static Action OnResetStarted;
     public static Action OnResetCanceled;
-    public static Action OnResetCompleted;
+    public static Action OnReset;
 
     public static Action OnPause;
     public static Action OnResume;

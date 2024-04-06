@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnResume += Resume;
         EventManager.OnResetStarted += StartResetTimer;
         EventManager.OnResetCanceled += CancelResetTimer;
-        EventManager.OnResetCompleted += PerformReset;      
+        EventManager.OnReset += PerformReset;      
     }
 
     private void OnDisable()
@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnResume -= Resume;
         EventManager.OnResetStarted -= StartResetTimer;
         EventManager.OnResetCanceled -= CancelResetTimer;
-        EventManager.OnResetCompleted -= PerformReset;
+        EventManager.OnReset -= PerformReset;
     }
     private void Start()
     {
@@ -112,7 +112,7 @@ public class UIManager : MonoBehaviour
         }
 
         ResetBarFiller.fillAmount = 1;
-        EventManager.OnResetCompleted?.Invoke();
+        EventManager.OnReset?.Invoke();
     }
 
 

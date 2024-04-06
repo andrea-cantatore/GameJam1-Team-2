@@ -162,12 +162,11 @@ public class PlayerController : MonoBehaviour
         {
             _isHiFrame = false;
         }
-        if(_hiFrameTimer > _hiFrameCooldown)
+        if (_hiFrameTimer > _hiFrameCooldown)
         {
             _isHiFrameUsable = true;
             _hiFrameTimer = 0;
         }
-        
     }
 
     public void GroundPound()
@@ -191,13 +190,19 @@ public class PlayerController : MonoBehaviour
         }
         return true;
     }
-    
+
     private void ChangeHp(int value)
     {
-        _hp += value;
-        if(_hp <= 0)
-            EventManager.OnPlayerDeath?.Invoke();
-        if(value < 0)
+        if (value > 0)
+        {
+            _hp += value;
+        }
+        else if (value < 0 && !_isHiFrame)
+        {
             EventManager.OnReset?.Invoke();
+            _hp += value;
+        }
+        if (_hp <= 0)
+            EventManager.OnPlayerDeath?.Invoke();
     }
 }
