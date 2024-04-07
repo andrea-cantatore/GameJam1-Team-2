@@ -18,14 +18,15 @@ public static class InputManager
 
     public static void SwitchToMenuInput()
     {
-        
+        Time.timeScale = 0;
         actionMap.PlayerInput.Disable();
         actionMap.Menu.Enable();
         
     }
 
     public static void SwitchToPlayerInput()
-    { 
+    {
+        Time.timeScale = 1;
         actionMap.PlayerInput.Enable();
         actionMap.Menu.Disable();
     }

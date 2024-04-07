@@ -55,6 +55,7 @@ public class PlayerInputHandler : MonoBehaviour, IPlayer
     
     private void Interact(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        EventManager.OnInteracting?.Invoke();
     }
 
     private void GroundPoundUnlock(bool isUnlocked)
