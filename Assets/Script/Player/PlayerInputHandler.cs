@@ -57,7 +57,7 @@ public class PlayerInputHandler : MonoBehaviour, IPlayer
         if(_isGroundPoundUnlocked)
             _playerController.GroundPound();
     }
-    
+   
 
     private void GroundPoundUnlock(bool isUnlocked)
     {

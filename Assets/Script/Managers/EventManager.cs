@@ -22,4 +22,9 @@ public class EventManager : MonoBehaviour
     public static Action OnResume;
     public static Action UnPauseToggle;
 
+    // Dialog Events
+    public static Action OnInteracting;
+    public static Action<string> OnEnterDialogue;
+    public static Action OnExitDialogue;
+
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -17,12 +18,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject ControlsScreen;
     [SerializeField] GameObject ResetBar;
     [SerializeField] Image ResetBarFiller;
+    [SerializeField] GameObject DialogObj;
+    [SerializeField] TMP_Text Dialog_txt;
     [Header("Buttons References")]
     [SerializeField] RectTransform ControlsButton;
     [SerializeField] RectTransform BackButton_InControls;
     [Header("Parameters")]
     [SerializeField] float ResetTimer;
-    
+    [Header("Debug")]
+    bool DialogBoxActive;
     
     
 
@@ -33,7 +37,9 @@ public class UIManager : MonoBehaviour
         EventManager.OnResume += Resume;
         EventManager.OnResetStarted += StartResetTimer;
         EventManager.OnResetCanceled += CancelResetTimer;
-        EventManager.OnReset += PerformReset;      
+        EventManager.OnReset += PerformReset;
+        EventManager.OnEnterDialogue += ReadDialog;
+        EventManager.OnExitDialogue += ExitDialog;
     }
 
     private void OnDisable()
@@ -43,6 +49,8 @@ public class UIManager : MonoBehaviour
         EventManager.OnResetStarted -= StartResetTimer;
         EventManager.OnResetCanceled -= CancelResetTimer;
         EventManager.OnReset -= PerformReset;
+        EventManager.OnEnterDialogue -= ReadDialog;
+        EventManager.OnExitDialogue -= ExitDialog;
     }
     private void Start()
     {
@@ -50,6 +58,7 @@ public class UIManager : MonoBehaviour
         SettingsMenu.SetActive(false);
         ControlsScreen.SetActive(false);
         ResetBar.SetActive(false);
+        DialogObj.SetActive(false);
     }
 
     
@@ -113,6 +122,30 @@ public class UIManager : MonoBehaviour
 
         ResetBarFiller.fillAmount = 1;
         EventManager.OnReset?.Invoke();
+    }
+
+    void ReadDialog(string message)
+    {
+        if (DialogBoxActive == false)
+        {
+
+            DialogBoxActive = true;
+            DialogObj.SetActive(true);
+            Dialog_txt.text = message;
+        }
+        else ExitDialog();
+
+        
+    }
+
+    void ExitDialog()
+    {
+        if (DialogObj.activeInHierarchy)
+        {
+            DialogBoxActive = false;
+            Dialog_txt.text = "";
+            DialogObj.SetActive(false);
+        }
     }
 
 
