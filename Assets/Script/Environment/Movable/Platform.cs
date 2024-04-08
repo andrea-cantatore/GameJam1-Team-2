@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -45,11 +46,30 @@ public class Platform : MonoBehaviour, IInteract
     private void ResetPos()
     {
         transform.position = _originalPos;
+        _isActivated = false;
     }
     
     public void interact(bool isActivated)
     {
         _isActivated = isActivated;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent(out PlayerController player))
+        {
+            Debug.Log("Player entered");
+            player.transform.SetParent(transform);
+        }
+    }
     
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.TryGetComponent(out PlayerController player))
+        {
+            Debug.Log("Player exited");
+            player.transform.SetParent(null);
+        }
+    }
+
 }

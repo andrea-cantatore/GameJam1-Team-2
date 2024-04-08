@@ -1,0 +1,9 @@
+REEDME
+
+put the game object where u want the player to spawn and the collider where the player have to go through to set the new spawn point 
+example:
+Collider where there is a door, 
+GameObject in front of the door,
+
+Player will spawn in front of the door and will set that waypoint when he go through that door
+  
