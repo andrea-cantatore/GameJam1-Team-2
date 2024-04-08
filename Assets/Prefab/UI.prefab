@@ -1127,6 +1127,7 @@ MonoBehaviour:
   ResetBarFiller: {fileID: 3760683137579130564}
   DialogObj: {fileID: 2487269919474638323}
   Dialog_txt: {fileID: 3816195332815586828}
+  Timer_txt: {fileID: 7008989103414989607}
   ControlsButton: {fileID: 5316720583736856625}
   BackButton_InControls: {fileID: 8938640527126324016}
   ResetTimer: 3

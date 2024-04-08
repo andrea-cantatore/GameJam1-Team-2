@@ -8,8 +8,9 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    // Coroutines
     Coroutine ResetProgressBarCoroutine;
-
+    Coroutine TimerCoroutine;
 
     // References
     [Header("Screens References")]
@@ -20,6 +21,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image ResetBarFiller;
     [SerializeField] GameObject DialogObj;
     [SerializeField] TMP_Text Dialog_txt;
+    [SerializeField] TMP_Text Timer_txt;
     [Header("Buttons References")]
     [SerializeField] RectTransform ControlsButton;
     [SerializeField] RectTransform BackButton_InControls;
@@ -40,6 +42,8 @@ public class UIManager : MonoBehaviour
         EventManager.OnReset += PerformReset;
         EventManager.OnEnterDialogue += ReadDialog;
         EventManager.OnExitDialogue += ExitDialog;
+        EventManager.OnTimerStarted += StartTimer;
+        EventManager.OnTimerCanceled += TimerCanceled;
     }
 
     private void OnDisable()
@@ -51,6 +55,8 @@ public class UIManager : MonoBehaviour
         EventManager.OnReset -= PerformReset;
         EventManager.OnEnterDialogue -= ReadDialog;
         EventManager.OnExitDialogue -= ExitDialog;
+        EventManager.OnTimerStarted -= StartTimer;
+        EventManager.OnTimerCanceled -= TimerCanceled;
     }
     private void Start()
     {
@@ -59,6 +65,7 @@ public class UIManager : MonoBehaviour
         ControlsScreen.SetActive(false);
         ResetBar.SetActive(false);
         DialogObj.SetActive(false);
+        Timer_txt.gameObject.SetActive(false);
     }
 
     
@@ -106,7 +113,7 @@ public class UIManager : MonoBehaviour
 
     void PerformReset()
     {
-        Debug.Log("RESET");
+        Debug.Log("RESET"); //TODO: Implementare quando sono pronti gli sprite
     }
 
     IEnumerator ResetProgressBar()
@@ -148,7 +155,38 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    void StartTimer(int time)
+    {
+        Timer_txt.gameObject.SetActive(true);
+        TimerCoroutine = StartCoroutine(Timer(time));
+    }
 
+    void TimerCanceled()
+    {
+        Timer_txt.gameObject.SetActive(false);
+        StopCoroutine(TimerCoroutine);
+    }
+
+    IEnumerator Timer(int time)
+    {
+        while (time > 0) 
+        {
+            Timer_txt.text = time.ToString();
+            time--;
+            Timer_txt.fontSize += 10;
+            yield return new WaitForSeconds(0.5f);
+            Timer_txt.fontSize -= 10;
+            yield return new WaitForSeconds(0.5f);
+        }
+        Timer_txt.gameObject.SetActive(false);
+        EventManager.OnTimerEnded?.Invoke();
+    }
+
+    private void Update()
+    {
+        //for testing timer
+        //if (Input.GetKeyDown(KeyCode.L)) { StartTimer(10); }
+    }
 }
     
 
