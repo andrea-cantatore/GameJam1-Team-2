@@ -9,11 +9,23 @@ public class Platform : MonoBehaviour, IInteract
     private bool _isActivated;
     [SerializeField] private Transform[] _waypoints;
     private int _currentWaypointDestination;
+    private Vector3 _originalPos;
     
     private void Start()
     {
         _currentWaypointDestination = 1;
+        _originalPos = transform.position;
     }
+    
+    private void OnEnable()
+    {
+        EventManager.OnReset += ResetPos;
+    }
+    private void OnDisable()
+    {
+        EventManager.OnReset -= ResetPos;
+    }
+    
     private void Update()
     {
         if (_isActivated)
@@ -30,7 +42,11 @@ public class Platform : MonoBehaviour, IInteract
         }
     }
     
-
+    private void ResetPos()
+    {
+        transform.position = _originalPos;
+    }
+    
     public void interact(bool isActivated)
     {
         _isActivated = isActivated;

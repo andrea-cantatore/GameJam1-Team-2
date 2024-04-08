@@ -76,6 +76,7 @@ public class PlayerInputHandler : MonoBehaviour, IPlayer
     private void InteractStarted(UnityEngine.InputSystem.InputAction.CallbackContext interact)
     {
         _isInteracting = true;
+        EventManager.OnInteracting?.Invoke();
     }
     private void InteractCanceled(UnityEngine.InputSystem.InputAction.CallbackContext nullInteract)
     {
