@@ -5,7 +5,7 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     [SerializeField] private GameObject[] _interactionObject;
-    [SerializeField] private float _durationTime = 15f;
+    [SerializeField] private int _durationTime = 15;
     private bool _isActivated, _isActivable;
     private float _activationTime = 0.5f;
     private float _activationTimer, _durationTimer;
@@ -54,6 +54,7 @@ public class Button : MonoBehaviour
                 }
                 _isActivated = true;
                 _isActivable = false;
+                EventManager.OnTimerStarted?.Invoke(_durationTime);
             }
             else if(player.IsInteracting() && _isActivated && _isActivable)
             {
@@ -66,6 +67,7 @@ public class Button : MonoBehaviour
                 _isActivated = false;
                 _isActivable = false;
                 _durationTimer = 0;
+                EventManager.OnTimerCanceled?.Invoke();
             }
         }
     }

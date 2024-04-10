@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 567953901}
   - component: {fileID: 567953906}
   m_Layer: 20
-  m_Name: Cube (3)
+  m_Name: Create Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3386,7 +3386,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873484296}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.022939427, y: 0.9438149, z: 0.06707486, w: -0.32278228}
+  m_LocalRotation: {x: 0.022939425, y: 0.9438149, z: 0.06707484, w: -0.32278228}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3460,7 +3460,7 @@ GameObject:
   - component: {fileID: 1942416622}
   - component: {fileID: 1942416621}
   m_Layer: 20
-  m_Name: Cube (4)
+  m_Name: Crate Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -63,10 +63,9 @@ public class PlayerController : MonoBehaviour
         Vector3 cameraForwardNoY = new Vector3(_cameraTransform.forward.x, 0, _cameraTransform.forward.z);
         Vector3 moveDirection = cameraForwardNoY * movement.y + _cameraTransform.right * movement.x;
         moveDirection = Vector3.Normalize(moveDirection);
-
-        if (!PushableChecker(moveDirection))
-            return;
-
+        
+        PushableChecker(moveDirection);
+        
         Vector3 velocity = moveDirection * _moveVelocity * Time.deltaTime;
         _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
         if (movement != Vector2.zero)
@@ -178,17 +177,21 @@ public class PlayerController : MonoBehaviour
         if (_isDashing)
             _isDashing = false;
     }
-    private bool PushableChecker(Vector3 direction)
+    private void PushableChecker(Vector3 direction)
     {
         RaycastHit hit;
+        RaycastHit hit2;
         if (Physics.Raycast(transform.position, direction, out hit, 1.5f, _pushableLayer))
         {
-            if (Physics.Raycast(hit.transform.position, direction, 0.6f))
+            hit.transform.GetComponent<Rigidbody>().mass = 1;
+            
+            if (Physics.Raycast(hit.transform.position, direction, out hit2, 20f, _pushableLayer))
             {
-                return false;
+                hit2.transform.GetComponent<Rigidbody>().mass = 1000f;
             }
+            
         }
-        return true;
+        
     }
 
     private void ChangeHp(int value)
