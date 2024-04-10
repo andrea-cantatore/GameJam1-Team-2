@@ -8,7 +8,7 @@ public class Lever : MonoBehaviour
     [SerializeField] private GameObject[] _interactionObject;
     [SerializeField] private GameObject _leverHead;
     private bool _isActivated, _isActivable;
-    private float _activationTime = 1f;
+    private float _activationTime = 0.5f;
     private float _activationTimer;
 
     private void Update()
