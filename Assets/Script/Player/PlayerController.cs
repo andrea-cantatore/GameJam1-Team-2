@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     public bool IsGrounded => Physics.Raycast(transform.position, Vector3.down, 1.1f, _groundLayer);
 
+    float dot;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -54,8 +56,8 @@ public class PlayerController : MonoBehaviour
             IsGroundPounding = !IsGrounded;
         if (!_isHiFrameUsable)
             HiFrameCooldown();
+        
     }
-
     private void Move()
     {
         if (_isDashing || _isDoubleDashing) return;
@@ -209,4 +211,7 @@ public class PlayerController : MonoBehaviour
         if (_hp <= 0)
             EventManager.OnPlayerDeath?.Invoke();
     }
+
+  
+    
 }
