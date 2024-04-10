@@ -1290,7 +1290,7 @@ MonoBehaviour:
     m_Bits: 1048576
   _hp: 3
   _jumpForce: 7
-  _groundPoundForce: 7
+  _groundPoundForce: 15
   _moveVelocity: 600
   _dashForce: 20
   _dashDuration: 0.3
