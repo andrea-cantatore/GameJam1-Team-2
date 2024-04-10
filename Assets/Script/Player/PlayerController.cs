@@ -18,8 +18,9 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")] [SerializeField] private float _jumpForce = 300f;
     [SerializeField] private float _groundPoundForce = 300f;
     [SerializeField] private float _moveVelocity = 10f;
-    public bool _isGroundPounding;
+    public bool IsGroundPounding, CanGroundPound;
     private bool _isDoubleJumping;
+    
 
     [Header("Dash values")] [SerializeField]
     private float _dashForce = 300f;
@@ -49,8 +50,8 @@ public class PlayerController : MonoBehaviour
 
         if (!_isDashUsable || _isDoubleDashing)
             DashCooldown();
-        if (_isGroundPounding)
-            _isGroundPounding = !IsGrounded;
+        if (IsGroundPounding)
+            IsGroundPounding = !IsGrounded;
         if (!_isHiFrameUsable)
             HiFrameCooldown();
     }
@@ -63,9 +64,9 @@ public class PlayerController : MonoBehaviour
         Vector3 cameraForwardNoY = new Vector3(_cameraTransform.forward.x, 0, _cameraTransform.forward.z);
         Vector3 moveDirection = cameraForwardNoY * movement.y + _cameraTransform.right * movement.x;
         moveDirection = Vector3.Normalize(moveDirection);
-        
+
         PushableChecker(moveDirection);
-        
+
         Vector3 velocity = moveDirection * _moveVelocity * Time.deltaTime;
         _rb.velocity = new Vector3(velocity.x, _rb.velocity.y, velocity.z);
         if (movement != Vector2.zero)
@@ -141,6 +142,8 @@ public class PlayerController : MonoBehaviour
             if (IsGrounded)
             {
                 _isDashUsable = true;
+                _isDashing = false;
+                _dashTimer = 0;
             }
 
             return;
@@ -170,9 +173,9 @@ public class PlayerController : MonoBehaviour
 
     public void GroundPound()
     {
-        if (_isGroundPounding || IsGrounded) return;
+        if (IsGroundPounding || IsGrounded) return;
 
-        _isGroundPounding = true;
+        IsGroundPounding = true;
         _rb.AddForce(Vector3.down * _groundPoundForce, ForceMode.Impulse);
         if (_isDashing)
             _isDashing = false;
@@ -184,14 +187,12 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(transform.position, direction, out hit, 1.5f, _pushableLayer))
         {
             hit.transform.GetComponent<Rigidbody>().mass = 1;
-            
+
             if (Physics.Raycast(hit.transform.position, direction, out hit2, 20f, _pushableLayer))
             {
                 hit2.transform.GetComponent<Rigidbody>().mass = 1000f;
             }
-            
         }
-        
     }
 
     private void ChangeHp(int value)
