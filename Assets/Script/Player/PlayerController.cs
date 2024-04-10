@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")] [SerializeField] private float _jumpForce = 300f;
     [SerializeField] private float _groundPoundForce = 300f;
     [SerializeField] private float _moveVelocity = 10f;
-    private bool _isGroundPounding;
+    public bool _isGroundPounding;
     private bool _isDoubleJumping;
 
     [Header("Dash values")] [SerializeField]
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     private float _dashTimer, _dash2Timer, _dashCooldownTimer, _hiFrameTimer;
     private bool _isDashing, _isDashingAirborne, _isDashUsable = true, _isDoubleDashing, _isHiFrame, _isHiFrameUsable;
 
-    private bool IsGrounded => Physics.Raycast(transform.position, Vector3.down, 1.1f, _groundLayer);
+    public bool IsGrounded => Physics.Raycast(transform.position, Vector3.down, 1.1f, _groundLayer);
 
     private void Awake()
     {
