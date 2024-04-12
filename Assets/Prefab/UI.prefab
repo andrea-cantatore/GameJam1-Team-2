@@ -994,6 +994,12 @@ MonoBehaviour:
   DialogObj: {fileID: 2487269919474638323}
   Dialog_txt: {fileID: 3816195332815586828}
   Timer_txt: {fileID: 7008989103414989607}
+  Lives:
+  - {fileID: 8110244568514499206}
+  - {fileID: 3127464294856873487}
+  - {fileID: 8808457248433667646}
+  - {fileID: 3660911332278035789}
+  - {fileID: 1464276025942393399}
   ControlsButton: {fileID: 5316720583736856625}
   BackButton_InControls: {fileID: 8938640527126324016}
   ResetTimer: 3
