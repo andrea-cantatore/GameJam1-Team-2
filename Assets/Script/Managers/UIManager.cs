@@ -58,6 +58,11 @@ public class UIManager : MonoBehaviour
         EventManager.OnTimerStarted -= StartTimer;
         EventManager.OnTimerCanceled -= TimerCanceled;
     }
+
+    private void Awake()
+    {
+        InputManager.SwitchToPlayerInput();
+    }
     private void Start()
     {
         HUD.SetActive(true);
@@ -93,6 +98,11 @@ public class UIManager : MonoBehaviour
         EventManager.UnPauseToggle?.Invoke();
         SettingsMenu.SetActive(false);
         ControlsScreen.SetActive(false);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     void StartResetTimer()
@@ -182,11 +192,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnTimerEnded?.Invoke();
     }
 
-    private void Update()
-    {
-        //for testing timer
-        //if (Input.GetKeyDown(KeyCode.L)) { StartTimer(10); }
-    }
+   
 }
     
 
