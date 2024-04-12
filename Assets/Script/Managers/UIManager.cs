@@ -22,6 +22,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject DialogObj;
     [SerializeField] TMP_Text Dialog_txt;
     [SerializeField] TMP_Text Timer_txt;
+    [SerializeField] List<GameObject> Lives;
+    private int livesIndex = 0;
     [Header("Buttons References")]
     [SerializeField] RectTransform ControlsButton;
     [SerializeField] RectTransform BackButton_InControls;
@@ -44,6 +46,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnExitDialogue += ExitDialog;
         EventManager.OnTimerStarted += StartTimer;
         EventManager.OnTimerCanceled += TimerCanceled;
+        EventManager.OnReset += DecreaseLives;
     }
 
     private void OnDisable()
@@ -57,6 +60,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnExitDialogue -= ExitDialog;
         EventManager.OnTimerStarted -= StartTimer;
         EventManager.OnTimerCanceled -= TimerCanceled;
+        EventManager.OnReset -= DecreaseLives;
     }
     private void Start()
     {
@@ -115,6 +119,22 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("RESET"); //TODO: Implementare quando sono pronti gli sprite
     }
+
+    void Restart()
+    {
+        foreach(GameObject heart in Lives)
+            heart.SetActive(true);
+    }
+
+
+    void DecreaseLives()
+    {
+        if(livesIndex > 4) { livesIndex = 0; Restart(); } //TODO: sarebbe onplayerdeath?
+        Lives[livesIndex].SetActive(false);
+        livesIndex++;
+    }
+        
+        
 
     IEnumerator ResetProgressBar()
     {
