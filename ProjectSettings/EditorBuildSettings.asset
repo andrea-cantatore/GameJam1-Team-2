@@ -8,7 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Men\xF9.unity"
     guid: e2e5ddc3f2a381e42a906303e522f3f1
-  - enabled: 1
-    path: Assets/Scenes/Test/TestScene2.unity
-    guid: 4b2daadca368b3945a915143686fe7fa
   m_configObjects: {}
