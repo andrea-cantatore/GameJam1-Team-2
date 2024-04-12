@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mtl_lava_simple
-  m_Shader: {fileID: 4800000, guid: bec21333d7f8cf84cb75cab616acf589, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0803b816564bc844b9300c6e1572fcff, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -46,6 +46,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _Displacement: 0.0375
+    - _DistortX: 1
+    - _DistortY: 0
     - _RefractTexTiling: 1
     m_Colors:
     - _ChannelFactor: {r: -0.3281326, g: 0.5920941, b: 0.7360384, a: 0}
