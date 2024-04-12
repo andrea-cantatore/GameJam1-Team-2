@@ -12,24 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca963e89358954489f8f531616ca875, type: 3}
   m_Name: AudioDatabase
   m_EditorClassIdentifier: 
-  sfx_walkingSound: {fileID: 0}
-  sfx_jumpSound: {fileID: 0}
-  sfx_landingSound: {fileID: 0}
-  sfx_dashSound: {fileID: 0}
-  sfx_groundPoundSound: {fileID: 0}
-  sfx_lavaSound: {fileID: 0}
-  sfx_voidSound: {fileID: 0}
-  sfx_spikeSound: {fileID: 0}
-  sfx_dartsSound: {fileID: 0}
+  sfx_walkingSound: {fileID: 8300000, guid: 336e61b80d0be364aa24b610d4031c6e, type: 3}
+  sfx_jumpSound: {fileID: 8300000, guid: 516384efd1520994bbf3edbd57407381, type: 3}
+  sfx_landingSound: {fileID: 8300000, guid: 030fc719d0980314b90e3988bf5a43c8, type: 3}
+  sfx_dashSound: {fileID: 8300000, guid: 0543ba2b82da00341967e0e55ea048a1, type: 3}
+  sfx_groundPoundSound: {fileID: 8300000, guid: 0d63e5dab04b2f748ae0497da406b199, type: 3}
+  sfx_lavaSound: {fileID: 8300000, guid: ef2557cf3b59c0f43b5b8f4d8b4d9b5b, type: 3}
+  sfx_voidSound: {fileID: 8300000, guid: 890e0cf095dea02458b35ff22a7e1c0b, type: 3}
+  sfx_spikeSound: {fileID: 8300000, guid: c7107e12610544a4bb097e28395ee876, type: 3}
+  sfx_dartsSound: {fileID: 8300000, guid: f69df4566f9f7d943a956f187e834048, type: 3}
   sfx_fireBreathSound: {fileID: 0}
-  sfx_openingDoorSound: {fileID: 0}
-  sfx_openingLockSound: {fileID: 0}
-  sfx_pushingCrateSound: {fileID: 0}
-  sfx_leverSound: {fileID: 0}
-  sfx_buttonSound: {fileID: 0}
-  sfx_floorSwitchSound: {fileID: 0}
-  sfx_timerSound: {fileID: 0}
+  sfx_openingDoorSound: {fileID: 8300000, guid: 2e9bb2e64deab4f4b834f731f913206e, type: 3}
+  sfx_openingLockSound: {fileID: 8300000, guid: c02375b2a58e631449fdc37f37de2618, type: 3}
+  sfx_pushingCrateSound: {fileID: 8300000, guid: ff8f13f3eebd9d84db2a49b9d3942529, type: 3}
+  sfx_leverSound: {fileID: 8300000, guid: 4cbeabf8f9533f34a987545b4cf8b0a3, type: 3}
+  sfx_buttonSound: {fileID: 8300000, guid: 1d7816192430dd341bc8580c873a521e, type: 3}
+  sfx_floorSwitchSound: {fileID: 8300000, guid: 1f2c65d2c20e3be4183201722d5ae436, type: 3}
+  sfx_timerSound: {fileID: 8300000, guid: f2ed94fc573d4684d920d97041749a9c, type: 3}
   sfx_pickupSound: {fileID: 8300000, guid: 4afffbeb723a1094dbd96c1afe0c6033, type: 3}
-  sfx_deathSound: {fileID: 0}
+  sfx_deathSound: {fileID: 8300000, guid: 2ea4925919af6c347b8e8b45392b1676, type: 3}
   sfx_victorySound: {fileID: 0}
   sfx_looseSound: {fileID: 0}
