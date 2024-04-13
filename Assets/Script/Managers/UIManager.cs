@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -23,7 +24,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text Dialog_txt;
     [SerializeField] TMP_Text Timer_txt;
     [SerializeField] List<GameObject> Lives;
-    private int livesIndex = 0;
+    private int livesIndex = 4;
     [Header("Buttons References")]
     [SerializeField] RectTransform ControlsButton;
     [SerializeField] RectTransform BackButton_InControls;
@@ -126,7 +127,7 @@ public class UIManager : MonoBehaviour
     {
         foreach(GameObject heart in Lives)
             heart.SetActive(true);
-        livesIndex = 0;
+        livesIndex = 4;
     }
 
 
@@ -137,10 +138,10 @@ public class UIManager : MonoBehaviour
             Lives[livesIndex].SetActive(false);
             livesIndex += value;
         }
-        else
+        else if(livesIndex < Lives.Count - 1 && value > 0)
         {
-            livesIndex += value;
             Lives[livesIndex].SetActive(true);
+            livesIndex += value;
         }
     }
         
