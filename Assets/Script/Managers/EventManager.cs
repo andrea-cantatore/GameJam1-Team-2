@@ -6,6 +6,7 @@ public class EventManager : MonoBehaviour
     //Player Events
     public static Action OnPlayerDeath;
     public static Action<int> OnPlayerChangeHp;
+    public static Action<int> OnPlayerChangeHpNotHiFrame;
     
     
     // Pickuppable Events
@@ -30,6 +31,6 @@ public class EventManager : MonoBehaviour
     // Timer Events
     public static Action<int> OnTimerStarted; // chiama questo per far partire il timer(l'ho pensato in modo che gli venga passato un tempo diverso a seconda del bottone)
     public static Action OnTimerEnded;
-    public static Action OnTimerCanceled; // chiama questo se avete deciso che ripremendo il bottone il timer si fermi ( tornerà a zero)
+    public static Action OnTimerCanceled; // chiama questo se avete deciso che ripremendo il bottone il timer si fermi ( tornerï¿½ a zero)
 
 }

@@ -202,11 +202,14 @@ public class PlayerController : MonoBehaviour
         if (value > 0)
         {
             _hp += value;
+            EventManager.OnPlayerChangeHpNotHiFrame?.Invoke(value);
         }
         else if (value < 0 && !_isHiFrame)
         {
             EventManager.OnReset?.Invoke();
+            EventManager.OnPlayerChangeHpNotHiFrame?.Invoke(value);
             _hp += value;
+            
         }
         if (_hp <= 0)
             EventManager.OnPlayerDeath?.Invoke();
