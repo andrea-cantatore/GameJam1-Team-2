@@ -467,13 +467,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 43095705}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
 --- !u!4 &43095703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
   m_PrefabInstance: {fileID: 43095702}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &43095704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 43095702}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &43095705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43095704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: 'How many signs are in this room? I your answer is 2 you don''t have
+    to worry! '
 --- !u!1 &49750260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,8 +1359,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 534616830}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
+--- !u!1 &116551385 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 116551384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &122153432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,13 +1923,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 153633025}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
 --- !u!4 &153633023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
   m_PrefabInstance: {fileID: 153633022}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &153633024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 153633022}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &153633025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153633024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: "Hello traveler, if you are reading this i'm sorry for you.\r\nYou
+    have been trapped, but do not worry the exit door is right in front of you! \r\nBut
+    first, why don't you do some stretching?\r\nUse WASD to move around, SPACE to
+    jump and Shift to dash!\r\n"
 --- !u!4 &168176154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8937531852772943281, guid: 072ce9bc85cd40946be85ae0ef772ecf, type: 3}
@@ -5168,13 +5222,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 392634136}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
 --- !u!4 &392634134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
   m_PrefabInstance: {fileID: 392634133}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &392634135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 392634133}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &392634136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392634135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: "Watch out lava is hot! Also there is a lever right there.\nQuick Tip:
+    Double Jump \u201Ccape\u201D is an ancient artifact that grants you the ability
+    to jump on air a second time \r\n"
 --- !u!1001 &393730039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6910,6 +6987,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
   m_PrefabInstance: {fileID: 116551384}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &534616830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116551385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: 'If you manage to fail a puzzle or get stuck in a corner with no way
+    out,  hold R and you will reload the room you are in like nothing ever happened.
+
+'
 --- !u!1 &551535798
 GameObject:
   m_ObjectHideFlags: 0
@@ -8499,8 +8592,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1470671725}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
+--- !u!1 &663493363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 663493362}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &663585551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8556,8 +8657,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1956534579}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
+--- !u!1 &663585552 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 663585551}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &672479167
 GameObject:
   m_ObjectHideFlags: 0
@@ -9657,8 +9766,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1779461228}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
+--- !u!1 &746211965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 746211964}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &750728675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10197,13 +10314,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 786898547}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
 --- !u!4 &786898545 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
   m_PrefabInstance: {fileID: 786898544}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &786898546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 786898544}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &786898547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786898546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: 'This is a sign under a lamp.
+
+'
 --- !u!4 &798987129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8937531852772943281, guid: 072ce9bc85cd40946be85ae0ef772ecf, type: 3}
@@ -10825,13 +10965,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 834979706}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
 --- !u!4 &834979704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
   m_PrefabInstance: {fileID: 834979703}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &834979705 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 834979703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &834979706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834979705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: I wonder if there is a easy way out...
 --- !u!1 &845096304
 GameObject:
   m_ObjectHideFlags: 0
@@ -11097,8 +11258,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1099091105}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
+--- !u!1 &867294608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 867294607}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &873364168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11503,6 +11672,99 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887545685}
   m_Mesh: {fileID: -1774571685060718428, guid: c8ab4c8ffc85b2243ade3321897a5e83, type: 3}
+--- !u!1001 &896348515
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8490998304224052793}
+    m_Modifications:
+    - target: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      propertyPath: m_Name
+      value: pCube7 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.012685607
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.012685607
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.215
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.948
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.146
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.36950046
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9292306
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 223.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 896348518}
+  m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
+--- !u!4 &896348516 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 896348515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &896348517 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 896348515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &896348518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896348517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: "Ground Pound \u201CCape\u201D: just a pair of shoes, can be activated
+    in air and when they make contact in lava or void they allow the user to be pushed
+    closer to the other edge without taking damage. \n"
 --- !u!1001 &907942588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12250,13 +12512,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 941011558}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
 --- !u!4 &941011556 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
   m_PrefabInstance: {fileID: 941011555}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &941011557 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 941011555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &941011558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941011557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: "Button works like levers but only for a short period of time so don't
+    waste it reading signs! \r\n"
 --- !u!1 &954321054
 GameObject:
   m_ObjectHideFlags: 0
@@ -12665,13 +12949,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 974208070}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
 --- !u!4 &974208068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
   m_PrefabInstance: {fileID: 974208067}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &974208069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 974208067}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &974208070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974208069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: Hey you knwo how much time I spent doing the level desing! GO back
+    immediatly !
 --- !u!1 &986056541
 GameObject:
   m_ObjectHideFlags: 0
@@ -13566,13 +13872,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1031232993}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
 --- !u!4 &1031232991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
   m_PrefabInstance: {fileID: 1031232990}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1031232992 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 1031232990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1031232993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031232992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: This is the final challenge, good luck traveler!
 --- !u!4 &1031849393 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5478678294796874170, guid: 15b20cefd9dd48549883cc79c3112d38, type: 3}
@@ -14343,6 +14670,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
   m_PrefabInstance: {fileID: 867294607}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1099091105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867294608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: "Sorry I lied\u2026 kinda. There are a couple of steps to do before
+    escaping.\r\nThat crate over there seems suspicius, look around and see if you
+    can find something useful.\r\n"
 --- !u!1001 &1100660178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14398,8 +14740,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1330663210}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
+--- !u!1 &1100660179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 1100660178}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1107647878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17204,6 +17554,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
   m_PrefabInstance: {fileID: 1100660178}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1330663210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100660179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: 'You are doing wonderfully! Watch out for the traps above, everything
+    here will kill you instantly so be careful and dash till the end! '
 --- !u!1001 &1338669808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18232,6 +18596,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
   m_PrefabInstance: {fileID: 663493362}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1470671725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663493363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: 'Wood crates can be pushed around to help you get over obstacles but
+    be careful or you''re gonna end up getting stuck in a dead-end.
+
+'
 --- !u!1 &1484116791
 GameObject:
   m_ObjectHideFlags: 0
@@ -20935,8 +21315,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1697401674}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
+--- !u!1 &1697401673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 1697401672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1697401674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697401673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: ' Looks like you made it, if it was a pleasure to meet you traveler,
+    i hope to see you again.
+
+    Goodbye!
+
+'
 --- !u!1 &1699547484
 GameObject:
   m_ObjectHideFlags: 0
@@ -21888,6 +22294,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
   m_PrefabInstance: {fileID: 746211964}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1779461228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746211965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: Be careful some rooms will interfere with your powerups blocking them
+    from being used, but you already saw it coming didn't you?
 --- !u!1001 &1785176850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23214,8 +23634,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1889596979}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
+--- !u!1 &1889596978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 1889596977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1889596979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889596978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: 'Congratulations you completed the turorial, now its time for the real
+    deal!
+
+'
 --- !u!4 &1895538806 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1397901107797967713, guid: b3cdc9eea27741f4c8e37508049a437c, type: 3}
@@ -24051,8 +24495,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1947070619}
   m_SourcePrefab: {fileID: 100100000, guid: d99408e1f50839e40849d588109cd593, type: 3}
+--- !u!1 &1947070618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 227714131528403581, guid: d99408e1f50839e40849d588109cd593, type: 3}
+  m_PrefabInstance: {fileID: 1947070617}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1947070619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947070618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: 'Let me guess you went left in the last room? Quick Tip: Keys can be
+    used on locks to open them, keys are color matched to the locks they open, be
+    careful to not lose them!
+
+'
 --- !u!1001 &1955222033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24128,6 +24597,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4638546772297229449, guid: d99408e1f50839e40849d588109cd593, type: 3}
   m_PrefabInstance: {fileID: 663585551}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1956534579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663585552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a628493a2798844b3eb231db451190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToShow: "You are doing wonderfully! Watch out for the traps above, everything
+    here will kill you instantly so be careful and dash till the end! \nQuick Tip:
+    Dash \u201Ccape\u201D: an old and forgotten artifact that grants you a bigger
+    dash and invulnerability to some traps when used.\r\n"
 --- !u!4 &1964567233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 589300923039905881, guid: 5cf0d26dc3c13764a935137a63016a07, type: 3}
@@ -42087,6 +42572,7 @@ Transform:
   - {fileID: 9134183188998745180}
   - {fileID: 296481116}
   - {fileID: 1099091104}
+  - {fileID: 896348516}
   - {fileID: 1470671724}
   - {fileID: 1235268598}
   - {fileID: 1034968663}
