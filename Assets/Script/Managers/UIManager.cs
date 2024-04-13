@@ -24,6 +24,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text Dialog_txt;
     [SerializeField] TMP_Text Timer_txt;
     [SerializeField] List<GameObject> Lives;
+    [SerializeField] GameObject emptyKey;
+    [SerializeField] GameObject keyObtained;
+    
     private int livesIndex = 4;
     [Header("Buttons References")]
     [SerializeField] RectTransform ControlsButton;
@@ -49,6 +52,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnTimerStarted += StartTimer;
         EventManager.OnTimerCanceled += TimerCanceled;
         EventManager.OnPlayerChangeHpNotHiFrame += LivesChanges;
+        EventManager.OnKeyCollected += KeyCollected;
     }
 
     private void OnDisable()
@@ -64,6 +68,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnTimerStarted -= StartTimer;
         EventManager.OnTimerCanceled -= TimerCanceled;
         EventManager.OnPlayerChangeHpNotHiFrame -= LivesChanges;
+        EventManager.OnKeyCollected -= KeyCollected;
     }
     private void Start()
     {
@@ -73,6 +78,8 @@ public class UIManager : MonoBehaviour
         ResetBar.SetActive(false);
         DialogObj.SetActive(false);
         Timer_txt.gameObject.SetActive(false);
+        emptyKey.SetActive(true);
+        keyObtained.SetActive(false);
     }
 
     
@@ -213,10 +220,10 @@ public class UIManager : MonoBehaviour
         EventManager.OnTimerEnded?.Invoke();
     }
 
-    private void Update()
+    void KeyCollected()
     {
-        //for testing timer
-        //if (Input.GetKeyDown(KeyCode.L)) { StartTimer(10); }
+        emptyKey.SetActive(false);
+        keyObtained.SetActive(true);
     }
 }
     

@@ -25,11 +25,15 @@ public class AudioData : ScriptableObject
     [SerializeField] public AudioClip sfx_floorSwitchSound;
     [SerializeField] public AudioClip sfx_timerSound;
     [SerializeField] public AudioClip sfx_pickupSound;
+    [SerializeField] public AudioClip sfx_wallTrapSound;
     [Header("Event Sounds")]
     [SerializeField] public AudioClip sfx_deathSound;
     [SerializeField] public AudioClip sfx_victorySound;
     [SerializeField] public AudioClip sfx_looseSound;
-    
+    [Header("Event Sounds")]
+    [SerializeField] public AudioClip sfx_buttoSound;
+
+
 
 
 }

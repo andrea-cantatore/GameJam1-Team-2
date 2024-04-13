@@ -13,6 +13,7 @@ public class EventManager : MonoBehaviour
     public static Action<bool> OnDoubleJumpUnlock;
     public static Action<bool> OnDoubleDashUnlock;
     public static Action<bool> OnGroundPoundUnlock;
+    public static Action OnKeyCollected;
 
     // Reset event
     public static Action OnResetStarted;

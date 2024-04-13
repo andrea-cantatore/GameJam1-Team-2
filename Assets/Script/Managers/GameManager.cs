@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     
     private bool _isGameResetting;
     private float _resetTimer;
+    public bool _PlayerHasKey; // da usare nel momento in cui serve il check della chiave
     
     bool GameIsPaused;
     private void OnEnable()
@@ -14,13 +15,19 @@ public class GameManager : MonoBehaviour
         EventManager.UnPauseToggle += () => GameIsPaused = false;
         InputManager.actionMap.UI_Toggle.Toggle.performed += Pause;
         InputManager.actionMap.Menu.Disable();
+        EventManager.OnKeyCollected += () => _PlayerHasKey = false;
     }
     
     private void OnDisable()
     {
         InputManager.actionMap.UI_Toggle.Toggle.performed -= Pause;
     }
-    
+
+    private void Start()
+    {
+        _PlayerHasKey = false;
+    }
+
 
     private void Pause(InputAction.CallbackContext context)
     {
