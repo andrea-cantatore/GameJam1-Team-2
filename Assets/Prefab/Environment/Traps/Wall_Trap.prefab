@@ -511,6 +511,7 @@ GameObject:
   - component: {fileID: 1479617789284507112}
   - component: {fileID: 6179019106320510783}
   - component: {fileID: 1686649705484067658}
+  - component: {fileID: 2609223108289565923}
   m_Layer: 0
   m_Name: pCylinder7
   m_TagString: Untagged
@@ -633,8 +634,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 277.6335, y: 246.78238, z: 27.984936}
-  m_Center: {x: -143.63939, y: 112.23813, z: -1.1684742}
+  m_Size: {x: 277.6335, y: 246.7824, z: 61.389183}
+  m_Center: {x: -143.63939, y: 112.23812, z: 15.533656}
+--- !u!114 &2609223108289565923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257192702089056497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79087a56e710642458ca0beb029ac426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceForce: 0
 --- !u!1 &2288764853536702032
 GameObject:
   m_ObjectHideFlags: 0
