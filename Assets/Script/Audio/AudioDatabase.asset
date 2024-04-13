@@ -29,7 +29,7 @@ MonoBehaviour:
   sfx_buttonSound: {fileID: 8300000, guid: 1d7816192430dd341bc8580c873a521e, type: 3}
   sfx_floorSwitchSound: {fileID: 8300000, guid: 1f2c65d2c20e3be4183201722d5ae436, type: 3}
   sfx_timerSound: {fileID: 8300000, guid: f2ed94fc573d4684d920d97041749a9c, type: 3}
-  sfx_pickupSound: {fileID: 8300000, guid: 4afffbeb723a1094dbd96c1afe0c6033, type: 3}
+  sfx_pickupSound: {fileID: 8300000, guid: 4e05d5052fcd3a646ad5101b5af0036f, type: 3}
   sfx_deathSound: {fileID: 8300000, guid: 2ea4925919af6c347b8e8b45392b1676, type: 3}
-  sfx_victorySound: {fileID: 0}
-  sfx_looseSound: {fileID: 0}
+  sfx_victorySound: {fileID: 8300000, guid: cbcb5783bc63e414c8580de6cd52a173, type: 3}
+  sfx_looseSound: {fileID: 8300000, guid: 1a667537087085f479dd2352dfd354a2, type: 3}
