@@ -6,7 +6,6 @@ using UnityEngine;
 public class Lever : MonoBehaviour
 {
     [SerializeField] private GameObject[] _interactionObject;
-    [SerializeField] private GameObject _leverHead;
     private bool _isActivated, _isActivable;
     private float _activationTime = 0.5f;
     private float _activationTimer;
@@ -30,7 +29,6 @@ public class Lever : MonoBehaviour
         {
             if(player.IsInteracting() && !_isActivated && _isActivable)
             {
-                _leverHead.transform.Rotate(0, 0, -35);
                 foreach (var obj in _interactionObject)
                 {
                     if(obj.TryGetComponent(out IInteract interactable))
@@ -41,7 +39,6 @@ public class Lever : MonoBehaviour
             }
             else if(player.IsInteracting() && _isActivated && _isActivable)
             {
-                _leverHead.transform.Rotate(0, 0, 35);
                 foreach (var obj in _interactionObject)
                 {
                     if(obj.TryGetComponent(out IInteract interactable))

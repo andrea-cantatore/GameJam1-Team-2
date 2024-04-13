@@ -197,6 +197,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5229973359724825075}
+  - component: {fileID: 2191031640352054782}
+  - component: {fileID: 2783054144925990756}
   m_Layer: 0
   m_Name: Button 1
   m_TagString: Untagged
@@ -221,3 +223,38 @@ Transform:
   - {fileID: 3053605010731988299}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2191031640352054782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227210961857186319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce5888cd5903fe4b932d91b8a28109a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionObject: []
+  _durationTime: 15
+--- !u!65 &2783054144925990756
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227210961857186319}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 302.0781, y: 475.58737, z: 232.56938}
+  m_Center: {x: 16.68402, y: 35.011147, z: 115.784584}

@@ -115,6 +115,8 @@ GameObject:
   m_Component:
   - component: {fileID: 589300923039905881}
   - component: {fileID: 5855505164963076677}
+  - component: {fileID: 6741761446813513453}
+  - component: {fileID: 2937670794072655586}
   m_Layer: 0
   m_Name: LEVER 1
   m_TagString: Untagged
@@ -160,6 +162,41 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 54.861618, y: 25.662903, z: 13.131055}
   m_Center: {x: -2.1294951, y: 12.331451, z: 0.040096045}
+--- !u!65 &6741761446813513453
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5037374376076019078}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 302.0781, y: 475.58737, z: 232.56938}
+  m_Center: {x: 0, y: 100, z: 0}
+--- !u!114 &2937670794072655586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5037374376076019078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ad3aea537f1134996a57e3f1f38abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionObject: []
+  _leverHead: {fileID: 0}
 --- !u!1 &5805229075741869016
 GameObject:
   m_ObjectHideFlags: 0
