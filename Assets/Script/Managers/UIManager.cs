@@ -42,11 +42,12 @@ public class UIManager : MonoBehaviour
         EventManager.OnResetStarted += StartResetTimer;
         EventManager.OnResetCanceled += CancelResetTimer;
         EventManager.OnReset += PerformReset;
+        EventManager.OnPlayerDeath += Restart;
         EventManager.OnEnterDialogue += ReadDialog;
         EventManager.OnExitDialogue += ExitDialog;
         EventManager.OnTimerStarted += StartTimer;
         EventManager.OnTimerCanceled += TimerCanceled;
-        EventManager.OnReset += DecreaseLives;
+        EventManager.OnPlayerChangeHpNotHiFrame += LivesChanges;
     }
 
     private void OnDisable()
@@ -56,11 +57,12 @@ public class UIManager : MonoBehaviour
         EventManager.OnResetStarted -= StartResetTimer;
         EventManager.OnResetCanceled -= CancelResetTimer;
         EventManager.OnReset -= PerformReset;
+        EventManager.OnPlayerDeath -= Restart;
         EventManager.OnEnterDialogue -= ReadDialog;
         EventManager.OnExitDialogue -= ExitDialog;
         EventManager.OnTimerStarted -= StartTimer;
         EventManager.OnTimerCanceled -= TimerCanceled;
-        EventManager.OnReset -= DecreaseLives;
+        EventManager.OnPlayerChangeHpNotHiFrame -= LivesChanges;
     }
     private void Start()
     {
@@ -124,14 +126,22 @@ public class UIManager : MonoBehaviour
     {
         foreach(GameObject heart in Lives)
             heart.SetActive(true);
+        livesIndex = 0;
     }
 
 
-    void DecreaseLives()
+    void LivesChanges(int value)
     {
-        if(livesIndex > 4) { livesIndex = 0; Restart(); } //TODO: sarebbe onplayerdeath?
-        Lives[livesIndex].SetActive(false);
-        livesIndex++;
+        if (value < 0)
+        {
+            Lives[livesIndex].SetActive(false);
+            livesIndex += value;
+        }
+        else
+        {
+            livesIndex += value;
+            Lives[livesIndex].SetActive(true);
+        }
     }
         
         
