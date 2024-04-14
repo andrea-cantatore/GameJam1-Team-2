@@ -46,7 +46,7 @@ public class Lever : MonoBehaviour
                     if(obj.TryGetComponent(out IInteract interactable))
                         interactable.interact(false);
                 }
-                _animator.SetBool("StartAnimation", true);
+                _animator.SetBool("StartAnimation", false);
                 _isActivated = false;
                 _isActivable = false;
             }

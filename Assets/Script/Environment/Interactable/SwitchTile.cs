@@ -8,7 +8,7 @@ public class SwitchTile : MonoBehaviour
     [SerializeField] private GameObject[] _interactionObject;
     [SerializeField] private Animator _animator;
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Box"))
         {
@@ -21,7 +21,7 @@ public class SwitchTile : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Box"))
         {
