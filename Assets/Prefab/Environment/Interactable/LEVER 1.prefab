@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactionObject: []
-  _leverHead: {fileID: 0}
+  _animator: {fileID: 5444145886928863618}
 --- !u!1 &5805229075741869016
 GameObject:
   m_ObjectHideFlags: 0

@@ -92,6 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1397901107797967713}
+  - component: {fileID: 8650583156655750479}
+  - component: {fileID: 6028642250185232630}
   m_Layer: 0
   m_Name: muro_singolo_spuntoni
   m_TagString: Untagged
@@ -116,6 +118,40 @@ Transform:
   - {fileID: 2955469079619716268}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8650583156655750479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3230812406733365259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3b8662d8462304b9822ab67763b5a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1336701546621171836}
+--- !u!65 &6028642250185232630
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3230812406733365259}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0288801, y: 0.9879688, z: 1.8230777}
+  m_Center: {x: -0.491405, y: 0.50829786, z: 0.65563273}
 --- !u!1 &4659113154878477695
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +165,7 @@ GameObject:
   - component: {fileID: 1585499680493449927}
   - component: {fileID: 1336701546621171836}
   - component: {fileID: 1968854420058194609}
-  - component: {fileID: 7225006198387651338}
+  - component: {fileID: 3636320323829799830}
   m_Layer: 0
   m_Name: spuntoni
   m_TagString: Untagged
@@ -244,7 +280,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.77458125, y: 0.77372634, z: 0.19283193}
   m_Center: {x: 0, y: 0, z: 0.27729127}
---- !u!114 &7225006198387651338
+--- !u!114 &3636320323829799830
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -253,7 +289,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4659113154878477695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79087a56e710642458ca0beb029ac426, type: 3}
+  m_Script: {fileID: 11500000, guid: 451a59e299474754b8dd7df059651e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 0

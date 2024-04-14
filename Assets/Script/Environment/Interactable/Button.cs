@@ -9,6 +9,7 @@ public class Button : MonoBehaviour
     private bool _isActivated, _isActivable;
     private float _activationTime = 0.5f;
     private float _activationTimer, _durationTimer;
+    [SerializeField] private Animator _animator;
     
     
     private void Update()
@@ -54,7 +55,9 @@ public class Button : MonoBehaviour
                 }
                 _isActivated = true;
                 _isActivable = false;
+                _animator.SetBool("StartAnimation", true);
                 EventManager.OnTimerStarted?.Invoke(_durationTime);
+                _animator.SetBool("StartAnimation", false);
             }
             else if(player.IsInteracting() && _isActivated && _isActivable)
             {

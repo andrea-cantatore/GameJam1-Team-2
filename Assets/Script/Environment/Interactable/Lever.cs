@@ -9,6 +9,7 @@ public class Lever : MonoBehaviour
     private bool _isActivated, _isActivable;
     private float _activationTime = 0.5f;
     private float _activationTimer;
+    [SerializeField] private Animator _animator;
 
     private void Update()
     {
@@ -34,6 +35,7 @@ public class Lever : MonoBehaviour
                     if(obj.TryGetComponent(out IInteract interactable))
                         interactable.interact(true);
                 }
+                _animator.SetBool("StartAnimation", true);
                 _isActivated = true;
                 _isActivable = false;
             }
@@ -44,6 +46,7 @@ public class Lever : MonoBehaviour
                     if(obj.TryGetComponent(out IInteract interactable))
                         interactable.interact(false);
                 }
+                _animator.SetBool("StartAnimation", false);
                 _isActivated = false;
                 _isActivable = false;
             }
