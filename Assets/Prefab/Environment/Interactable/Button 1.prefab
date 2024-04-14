@@ -237,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionObject: []
   _durationTime: 15
+  _animator: {fileID: 8861596239511582429}
 --- !u!65 &2783054144925990756
 BoxCollider:
   m_ObjectHideFlags: 0
