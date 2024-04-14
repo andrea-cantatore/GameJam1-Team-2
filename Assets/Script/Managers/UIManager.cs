@@ -107,6 +107,7 @@ public class UIManager : MonoBehaviour
         EventManager.UnPauseToggle?.Invoke();
         SettingsMenu.SetActive(false);
         ControlsScreen.SetActive(false);
+        InputManager.SwitchToPlayerInput();
     }
 
     void StartResetTimer()
