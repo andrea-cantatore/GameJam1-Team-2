@@ -12,6 +12,7 @@ public class Intro_UI : MonoBehaviour
     [SerializeField] GameObject QuitButton;
     [SerializeField] GameObject Controlscreen;
     [SerializeField] GameObject BackButton;
+    [SerializeField] GameObject ControlButton;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class Intro_UI : MonoBehaviour
         PlayButton.SetActive(false);
         QuitButton.SetActive(false); 
         SettingsButon.SetActive(false);
-        //EventSystem.current.SetSelectedGameObject()
+        EventSystem.current.SetSelectedGameObject(ControlButton);
     }
 
     public void OpenControls()
@@ -61,6 +62,7 @@ public class Intro_UI : MonoBehaviour
         SettingsButon.SetActive(true);
         Controlscreen.SetActive(false) ;
         SettingsMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(PlayButton) ;
     }
 
 

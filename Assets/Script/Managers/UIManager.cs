@@ -28,6 +28,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject emptyKey;
     [SerializeField] GameObject keyObtained;
     [SerializeField] GameObject loseScreen, winScreen;
+    [SerializeField] GameObject WinScreenButton;
+    [SerializeField] GameObject LoseScreenButton;
     
     private int livesIndex = 4;
     [Header("Buttons References")]
@@ -90,6 +92,7 @@ public class UIManager : MonoBehaviour
 
     public void OnPauseMenu()
     {
+        
         CameraBlur.OnBlurBg?.Invoke();
         SettingsMenu.SetActive(true);
         ControlsScreen.SetActive(false);
@@ -112,6 +115,7 @@ public class UIManager : MonoBehaviour
         SettingsMenu.SetActive(false);
         ControlsScreen.SetActive(false);
         InputManager.SwitchToPlayerInput();
+        
     }
 
     void StartResetTimer()
@@ -133,17 +137,21 @@ public class UIManager : MonoBehaviour
     {
         loseScreen.SetActive(true);
         InputManager.SwitchToMenuInput();
+        InputManager.actionMap.UI_Toggle.Disable();
+        EventSystem.current.SetSelectedGameObject(LoseScreenButton);
     }
     
     void GameWin()
     {
         winScreen.SetActive(true);
         InputManager.SwitchToMenuInput();
+        InputManager.actionMap.UI_Toggle.Disable();
+        EventSystem.current.SetSelectedGameObject(WinScreenButton);
     }
 
     public void PerformReset()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(0);
     }
     
     public void GoToMainMenu()
