@@ -197,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionObject: []
   _animator: {fileID: 5444145886928863618}
+  _audioData: {fileID: 11400000, guid: fae3102ea5c2a6445862d9cb0ccb4b67, type: 2}
 --- !u!1 &5805229075741869016
 GameObject:
   m_ObjectHideFlags: 0

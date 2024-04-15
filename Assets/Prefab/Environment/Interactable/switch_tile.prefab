@@ -237,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactionObject: []
   _animator: {fileID: 4459634108884046413}
+  _audioData: {fileID: 11400000, guid: fae3102ea5c2a6445862d9cb0ccb4b67, type: 2}
 --- !u!65 &6852823235250685734
 BoxCollider:
   m_ObjectHideFlags: 0

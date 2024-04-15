@@ -21,6 +21,12 @@ public class PlayerController : MonoBehaviour
     public bool IsGroundPounding, CanGroundPound;
     private bool _isDoubleJumping;
     
+    [Header("Audio Values")]
+    [SerializeField] private AudioData _audioData;
+
+    private AudioClip _walkingSFX, _jumpingSFX, _dashingSFX, _groundPoundSFX;
+    private bool _canPlayWalkingSFX = true;
+    private float walkingSFXTimer;
 
     [Header("Dash values")] [SerializeField]
     private float _dashForce = 300f;
@@ -32,11 +38,20 @@ public class PlayerController : MonoBehaviour
     public bool IsGrounded => Physics.Raycast(transform.position, Vector3.down, 1.1f, _groundLayer);
 
     float dot;
+    
+    
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _cameraTransform = Camera.main.transform;
+    }
+    private void Start()
+    {
+        _walkingSFX = _audioData.sfx_walkingSound;
+        _jumpingSFX = _audioData.sfx_jumpSound;
+        _dashingSFX = _audioData.sfx_dashSound;
+        _groundPoundSFX = _audioData.sfx_groundPoundSound;
     }
     private void OnEnable()
     {
@@ -56,6 +71,15 @@ public class PlayerController : MonoBehaviour
             IsGroundPounding = !IsGrounded;
         if (!_isHiFrameUsable)
              HiFrameCooldown();
+        if (!_canPlayWalkingSFX)
+        {
+            walkingSFXTimer += Time.deltaTime;
+            if(walkingSFXTimer >= _walkingSFX.length)
+            {
+                _canPlayWalkingSFX = true;
+                walkingSFXTimer = 0;
+            }
+        }
         
     }
     private void Move()
@@ -75,6 +99,11 @@ public class PlayerController : MonoBehaviour
         {
             Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
             transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, Time.deltaTime * _moveVelocity);
+            if (_canPlayWalkingSFX)
+            {
+                AudioManager.instance.PlaySFX(_walkingSFX, transform);
+                _canPlayWalkingSFX = false;
+            }
         }
     }
 
@@ -84,6 +113,7 @@ public class PlayerController : MonoBehaviour
         {
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
             _isDoubleJumping = false;
+            AudioManager.instance.PlaySFX(_jumpingSFX, transform);
         }
         else if (!_isDoubleJumping && UnlockedDoubleJump)
         {
@@ -92,6 +122,7 @@ public class PlayerController : MonoBehaviour
 
             _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
             _isDoubleJumping = true;
+            AudioManager.instance.PlaySFX(_jumpingSFX, transform);
         }
     }
 
@@ -102,6 +133,7 @@ public class PlayerController : MonoBehaviour
         _isDashing = true;
         _isDashUsable = false;
         _isDashingAirborne = !IsGrounded;
+        AudioManager.instance.PlaySFX(_dashingSFX, transform);
         if (_isHiFrameUsable)
         {
             _isHiFrame = true;
@@ -116,6 +148,7 @@ public class PlayerController : MonoBehaviour
             _rb.AddForce(transform.forward * _dashForce, ForceMode.Impulse);
             _isDashing = true;
             _isDashUsable = false;
+            AudioManager.instance.PlaySFX(_dashingSFX, transform);
             if (_isHiFrameUsable)
             {
                 _isHiFrame = true;
@@ -126,6 +159,7 @@ public class PlayerController : MonoBehaviour
         {
             _rb.AddForce(transform.forward * _dashForce, ForceMode.Impulse);
             _isDoubleDashing = true;
+            AudioManager.instance.PlaySFX(_dashingSFX, transform);
             if (_isHiFrameUsable)
             {
                 _isHiFrame = true;
@@ -195,6 +229,7 @@ public class PlayerController : MonoBehaviour
 
         IsGroundPounding = true;
         _rb.AddForce(Vector3.down * _groundPoundForce, ForceMode.Impulse);
+        AudioManager.instance.PlaySFX(_groundPoundSFX, transform);
         if (_isDashing)
             _isDashing = false;
     }

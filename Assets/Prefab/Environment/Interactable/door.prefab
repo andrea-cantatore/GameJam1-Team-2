@@ -178,6 +178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator1: {fileID: 7506424112541861758}
   animator2: {fileID: 1252409927690743836}
+  _isDoubleInteraction: 0
+  _audioData: {fileID: 11400000, guid: fae3102ea5c2a6445862d9cb0ccb4b67, type: 2}
 --- !u!1 &5360792414350830559
 GameObject:
   m_ObjectHideFlags: 0

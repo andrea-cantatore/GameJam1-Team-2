@@ -18,6 +18,7 @@ public class KeyPickuppable : MonoBehaviour
     private void Start()
     {
         _originalPos = transform;
+        Debug.Log("boh");
     }
 
     private void OnEnable()

@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1336701546621171836}
+  _audioData: {fileID: 11400000, guid: fae3102ea5c2a6445862d9cb0ccb4b67, type: 2}
 --- !u!65 &6028642250185232630
 BoxCollider:
   m_ObjectHideFlags: 0

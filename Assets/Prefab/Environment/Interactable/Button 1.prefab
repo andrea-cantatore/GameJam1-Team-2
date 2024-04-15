@@ -238,6 +238,7 @@ MonoBehaviour:
   _interactionObject: []
   _durationTime: 15
   _animator: {fileID: 8861596239511582429}
+  _audioData: {fileID: 11400000, guid: fae3102ea5c2a6445862d9cb0ccb4b67, type: 2}
 --- !u!65 &2783054144925990756
 BoxCollider:
   m_ObjectHideFlags: 0

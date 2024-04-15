@@ -7,6 +7,14 @@ public class SwitchTile : MonoBehaviour
 {
     [SerializeField] private GameObject[] _interactionObject;
     [SerializeField] private Animator _animator;
+    
+    [SerializeField] private AudioData _audioData;
+    AudioClip _switchSFX;
+
+    private void Start()
+    {
+        _switchSFX = _audioData.sfx_floorSwitchSound;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,6 +26,7 @@ public class SwitchTile : MonoBehaviour
                     interactable.interact(true);
             }
             _animator.SetBool("StartAnimation", true);
+            AudioManager.instance.PlaySFX(_switchSFX, transform);
         }
     }
 
@@ -31,6 +40,7 @@ public class SwitchTile : MonoBehaviour
                     interactable.interact(false);
             }
             _animator.SetBool("StartAnimation", false);
+            AudioManager.instance.PlaySFX(_switchSFX, transform);
         }
     }
 }

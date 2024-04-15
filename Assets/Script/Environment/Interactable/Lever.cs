@@ -10,6 +10,14 @@ public class Lever : MonoBehaviour
     private float _activationTime = 0.5f;
     private float _activationTimer;
     [SerializeField] private Animator _animator;
+    
+    [SerializeField] private AudioData _audioData;
+    AudioClip _leverSFX;
+    
+    private void Start()
+    {
+        _leverSFX = _audioData.sfx_leverSound;
+    }
 
     private void Update()
     {
@@ -38,6 +46,7 @@ public class Lever : MonoBehaviour
                 _animator.SetBool("StartAnimation", true);
                 _isActivated = true;
                 _isActivable = false;
+                _leverSFX = _audioData.sfx_leverSound;
             }
             else if(player.IsInteracting() && _isActivated && _isActivable)
             {
@@ -49,6 +58,7 @@ public class Lever : MonoBehaviour
                 _animator.SetBool("StartAnimation", false);
                 _isActivated = false;
                 _isActivable = false;
+                _leverSFX = _audioData.sfx_leverSound;
             }
         }
     }

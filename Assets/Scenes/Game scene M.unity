@@ -3166,7 +3166,7 @@ GameObject:
   - component: {fileID: 133743380}
   - component: {fileID: 133743382}
   - component: {fileID: 133743381}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: lava_road_miniAngle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5406,7 +5406,7 @@ GameObject:
   - component: {fileID: 200894606}
   - component: {fileID: 200894610}
   - component: {fileID: 200894609}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Plane (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5490,7 +5490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79087a56e710642458ca0beb029ac426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 2
+  bounceForce: 10
 --- !u!65 &200894610
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6646,7 +6646,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 266115188}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: lava_road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8267,7 +8267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79087a56e710642458ca0beb029ac426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 2
+  bounceForce: 10
 --- !u!65 &296481118
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8660,7 +8660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79087a56e710642458ca0beb029ac426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 2
+  bounceForce: 10
 --- !u!1001 &307581886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11902,6 +11902,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5161215680482531072, guid: aa29fd73a10dbb04d8083e7a19e17b7e, type: 3}
+      propertyPath: _audioData
+      value: 
+      objectReference: {fileID: 11400000, guid: fae3102ea5c2a6445862d9cb0ccb4b67, type: 2}
+    - target: {fileID: 5161215680482531072, guid: aa29fd73a10dbb04d8083e7a19e17b7e, type: 3}
       propertyPath: _hiFrameDuration
       value: 1
       objectReference: {fileID: 0}
@@ -13532,7 +13536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 529724862}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: lava_road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14311,17 +14315,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5629010068270830954}
     m_Modifications:
-    - target: {fileID: 6170959739430027723, guid: ea75cadf5fd0d27448f7568bd5fea65d, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
+    - target: {fileID: -4483600611482774920, guid: ea75cadf5fd0d27448f7568bd5fea65d, type: 3}
+      propertyPath: _door
+      value: 
+      objectReference: {fileID: 828762316}
+    - target: {fileID: -4483600611482774920, guid: ea75cadf5fd0d27448f7568bd5fea65d, type: 3}
+      propertyPath: _lock
+      value: 
+      objectReference: {fileID: 73328293}
     - target: {fileID: 6403095866363426604, guid: ea75cadf5fd0d27448f7568bd5fea65d, type: 3}
       propertyPath: m_Name
       value: pTorus3
       objectReference: {fileID: 0}
     - target: {fileID: 6403095866363426604, guid: ea75cadf5fd0d27448f7568bd5fea65d, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6828978777946293159, guid: ea75cadf5fd0d27448f7568bd5fea65d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14363,14 +14371,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7151985273429233775, guid: ea75cadf5fd0d27448f7568bd5fea65d, type: 3}
-      propertyPath: _door
-      value: 
-      objectReference: {fileID: 828762316}
-    - target: {fileID: 7151985273429233775, guid: ea75cadf5fd0d27448f7568bd5fea65d, type: 3}
-      propertyPath: _lock
-      value: 
-      objectReference: {fileID: 73328293}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21277,7 +21277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79087a56e710642458ca0beb029ac426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 2
+  bounceForce: 10
 --- !u!1001 &813864599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27225,7 +27225,7 @@ GameObject:
   - component: {fileID: 1024440226}
   - component: {fileID: 1024440228}
   - component: {fileID: 1024440227}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: lava_road_miniAngle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27667,7 +27667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79087a56e710642458ca0beb029ac426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 2
+  bounceForce: 10
 --- !u!1001 &1040634935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34383,7 +34383,7 @@ GameObject:
   - component: {fileID: 1279158555}
   - component: {fileID: 1279158557}
   - component: {fileID: 1279158556}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: lava_road_miniAngle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42179,7 +42179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79087a56e710642458ca0beb029ac426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 2
+  bounceForce: 10
 --- !u!65 &1680791628
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45981,7 +45981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1815486254}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: lava_road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51398,7 +51398,7 @@ GameObject:
   - component: {fileID: 2025481209}
   - component: {fileID: 2025481212}
   - component: {fileID: 2025481211}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Plane (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51482,7 +51482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79087a56e710642458ca0beb029ac426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 2
+  bounceForce: 10
 --- !u!65 &2025481212
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54538,7 +54538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 760828029592599693, guid: a21d25c96acc1074c851961ba407d215, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.0000002
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 760828029592599693, guid: a21d25c96acc1074c851961ba407d215, type: 3}
       propertyPath: m_LocalPosition.z
@@ -54937,7 +54937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1097413448598796672}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: lava_road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55097,7 +55097,7 @@ GameObject:
   - component: {fileID: 2527205678138431631}
   - component: {fileID: 4306941921601148220}
   - component: {fileID: 2167397763290145018}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: lava_road_miniAngle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56237,7 +56237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1805420641187035333}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: lava_road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61406,7 +61406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6766182749332514154}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: lava_road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62153,7 +62153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6057742469175222026}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: lava_road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62548,7 +62548,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8023338519654509122}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: lava_road
   m_TagString: Untagged
   m_Icon: {fileID: 0}

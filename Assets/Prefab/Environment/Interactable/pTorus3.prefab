@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2349224911703009799}
   - component: {fileID: 3299140492155708630}
   - component: {fileID: 4244091107369198714}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,8 +115,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6828978777946293159}
   - component: {fileID: 3270994920893510188}
-  - component: {fileID: 7151985273429233775}
-  m_Layer: 0
+  - component: {fileID: -4483600611482774920}
+  m_Layer: 10
   m_Name: pTorus3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 30.222937, y: 51.002884, z: 13.2410555}
   m_Center: {x: -1.5142603, y: 25.492496, z: -1.1470027}
---- !u!114 &7151985273429233775
+--- !u!114 &-4483600611482774920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,3 +173,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioData: {fileID: 11400000, guid: fae3102ea5c2a6445862d9cb0ccb4b67, type: 2}
+  _door: {fileID: 0}
+  _lock: {fileID: 0}

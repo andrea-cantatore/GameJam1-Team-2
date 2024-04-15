@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,8 +11,15 @@ public class Button : MonoBehaviour
     private float _activationTime = 0.5f;
     private float _activationTimer, _durationTimer;
     [SerializeField] private Animator _animator;
-    
-    
+    [SerializeField] private AudioData _audioData;
+    AudioClip _buttonSFX;
+
+    private void Start()
+    {
+        _buttonSFX = _audioData.sfx_buttonSound;
+    }
+
+
     private void Update()
     {
         if(!_isActivable)
@@ -37,6 +45,7 @@ public class Button : MonoBehaviour
                 _isActivated = false;
                 _isActivable = false;
                 _durationTimer = 0;
+                AudioManager.instance.PlaySFX(_buttonSFX, transform);
             }
         }
     }
@@ -58,6 +67,7 @@ public class Button : MonoBehaviour
                 _animator.SetBool("StartAnimation", true);
                 EventManager.OnTimerStarted?.Invoke(_durationTime);
                 _animator.SetBool("StartAnimation", false);
+                AudioManager.instance.PlaySFX(_buttonSFX, transform);
             }
             else if(player.IsInteracting() && _isActivated && _isActivable)
             {
@@ -71,6 +81,7 @@ public class Button : MonoBehaviour
                 _isActivable = false;
                 _durationTimer = 0;
                 EventManager.OnTimerCanceled?.Invoke();
+                AudioManager.instance.PlaySFX(_buttonSFX, transform);
             }
         }
     }

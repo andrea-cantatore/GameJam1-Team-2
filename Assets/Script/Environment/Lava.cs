@@ -8,8 +8,7 @@ public class Lava : MonoBehaviour
     [SerializeField] float bounceForce;
     private bool _canBounce;
     PlayerController playerController;
-
-
+    
     private void Update()
     {
         if (!_canBounce && playerController != null)

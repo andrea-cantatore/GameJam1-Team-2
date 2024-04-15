@@ -651,6 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceForce: 0
+  _audioData: {fileID: 0}
 --- !u!114 &4841415973615574355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,6 +944,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7201964624005383621}
   - component: {fileID: -3397099002696597015}
+  - component: {fileID: 4969205941317684411}
   m_Layer: 0
   m_Name: Wall_Trap
   m_TagString: Untagged
@@ -980,6 +982,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68d0d7f2c67ba54d924544f5fbcc144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4969205941317684411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2790475369139639306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e4e60961474c67a1fb22f73a966923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioData: {fileID: 11400000, guid: fae3102ea5c2a6445862d9cb0ccb4b67, type: 2}
 --- !u!1 &3839360733419363671
 GameObject:
   m_ObjectHideFlags: 0
