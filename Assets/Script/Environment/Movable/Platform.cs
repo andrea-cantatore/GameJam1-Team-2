@@ -11,6 +11,8 @@ public class Platform : MonoBehaviour, IInteract
     [SerializeField] private Transform[] _waypoints;
     private int _currentWaypointDestination;
     private Vector3 _originalPos;
+    [SerializeField] private bool _isDoubleActivation;
+    private int _activationCounter;
     
     private void Start()
     {
@@ -31,7 +33,7 @@ public class Platform : MonoBehaviour, IInteract
     {
         if (_isActivated)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _waypoints[_currentWaypointDestination].position, 5f * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, _waypoints[_currentWaypointDestination].position, 1f * Time.deltaTime);
             if (Vector3.Distance(transform.position, _waypoints[_currentWaypointDestination].position) < 1f)
             {
                 _currentWaypointDestination++;
@@ -51,7 +53,22 @@ public class Platform : MonoBehaviour, IInteract
     
     public void interact(bool isActivated)
     {
-        _isActivated = isActivated;
+        if(isActivated && _isDoubleActivation)
+        {
+            _activationCounter++;
+            if (_activationCounter == 2)
+            {
+                _isActivated = true;
+            }
+        }
+        else if (_isDoubleActivation)
+        {
+            _activationCounter--;
+        }
+        else
+        {
+            _isActivated = isActivated;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

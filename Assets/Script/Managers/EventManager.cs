@@ -5,6 +5,7 @@ public class EventManager : MonoBehaviour
 {
     //Player Events
     public static Action OnPlayerDeath;
+    public static Action OnPlayerWin;
     public static Action<int> OnPlayerChangeHp;
     public static Action<int> OnPlayerChangeHpNotHiFrame;
     

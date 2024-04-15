@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -26,6 +27,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] List<GameObject> Lives;
     [SerializeField] GameObject emptyKey;
     [SerializeField] GameObject keyObtained;
+    [SerializeField] GameObject loseScreen, winScreen;
     
     private int livesIndex = 4;
     [Header("Buttons References")]
@@ -45,14 +47,14 @@ public class UIManager : MonoBehaviour
         EventManager.OnResume += Resume;
         EventManager.OnResetStarted += StartResetTimer;
         EventManager.OnResetCanceled += CancelResetTimer;
-        EventManager.OnReset += PerformReset;
-        EventManager.OnPlayerDeath += Restart;
+        EventManager.OnPlayerDeath += GameOver;
         EventManager.OnEnterDialogue += ReadDialog;
         EventManager.OnExitDialogue += ExitDialog;
         EventManager.OnTimerStarted += StartTimer;
         EventManager.OnTimerCanceled += TimerCanceled;
         EventManager.OnPlayerChangeHpNotHiFrame += LivesChanges;
         EventManager.OnKeyCollected += KeyCollected;
+        EventManager.OnPlayerWin += GameWin;
     }
 
     private void OnDisable()
@@ -61,14 +63,14 @@ public class UIManager : MonoBehaviour
         EventManager.OnResume -= Resume;
         EventManager.OnResetStarted -= StartResetTimer;
         EventManager.OnResetCanceled -= CancelResetTimer;
-        EventManager.OnReset -= PerformReset;
-        EventManager.OnPlayerDeath -= Restart;
+        EventManager.OnPlayerDeath -= GameOver;
         EventManager.OnEnterDialogue -= ReadDialog;
         EventManager.OnExitDialogue -= ExitDialog;
         EventManager.OnTimerStarted -= StartTimer;
         EventManager.OnTimerCanceled -= TimerCanceled;
         EventManager.OnPlayerChangeHpNotHiFrame -= LivesChanges;
         EventManager.OnKeyCollected -= KeyCollected;
+        EventManager.OnPlayerWin -= GameWin;
     }
     private void Start()
     {
@@ -80,6 +82,8 @@ public class UIManager : MonoBehaviour
         Timer_txt.gameObject.SetActive(false);
         emptyKey.SetActive(true);
         keyObtained.SetActive(false);
+        loseScreen.SetActive(false);
+        winScreen.SetActive(false);
     }
 
     
@@ -125,18 +129,28 @@ public class UIManager : MonoBehaviour
         ResetBarFiller.fillAmount = 0;
         ResetBar.SetActive(false);
     }
-
-    void PerformReset()
+    void GameOver()
     {
-        Debug.Log("RESET"); //TODO: Implementare quando sono pronti gli sprite
+        loseScreen.SetActive(true);
+        InputManager.SwitchToMenuInput();
+    }
+    
+    void GameWin()
+    {
+        winScreen.SetActive(true);
+        InputManager.SwitchToMenuInput();
     }
 
-    void Restart()
+    public void PerformReset()
     {
-        foreach(GameObject heart in Lives)
-            heart.SetActive(true);
-        livesIndex = 4;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("menù");
+    }
+
 
 
     void LivesChanges(int value)
