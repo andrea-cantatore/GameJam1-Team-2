@@ -53,6 +53,9 @@ public class AudioManager : MonoBehaviour
     IEnumerator DeactivationTimer(GameObject obj, float time)
     {
         yield return new WaitForSeconds(time);
-        obj.SetActive(false);
+        if (obj != null)
+        {
+            obj.SetActive(false);
+        }
     }
 }

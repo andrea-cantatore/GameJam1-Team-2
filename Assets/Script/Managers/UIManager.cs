@@ -86,6 +86,7 @@ public class UIManager : MonoBehaviour
         keyObtained.SetActive(false);
         loseScreen.SetActive(false);
         winScreen.SetActive(false);
+        livesIndex = 4;
     }
 
     

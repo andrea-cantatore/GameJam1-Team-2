@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
         InputManager.actionMap.UI_Toggle.Toggle.performed += Pause;
         InputManager.actionMap.Menu.Disable();
         EventManager.OnKeyCollected += () => _PlayerHasKey = false;
+        InputManager.actionMap.UI_Toggle.Enable();
     }
     
     private void OnDisable()

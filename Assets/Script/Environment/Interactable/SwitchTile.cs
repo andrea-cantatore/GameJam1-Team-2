@@ -18,7 +18,7 @@ public class SwitchTile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Box"))
+        if (other.gameObject.CompareTag("Box"))
         {
             foreach (var obj in _interactionObject)
             {
@@ -32,7 +32,7 @@ public class SwitchTile : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Box"))
+        if (other.gameObject.CompareTag("Box"))
         {
             foreach (var obj in _interactionObject)
             {
