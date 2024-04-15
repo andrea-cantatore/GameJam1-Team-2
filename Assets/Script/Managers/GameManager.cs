@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _PlayerHasKey = false;
+        Application.targetFrameRate = 60;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 
