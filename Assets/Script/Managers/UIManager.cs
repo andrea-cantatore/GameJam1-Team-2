@@ -148,7 +148,7 @@ public class UIManager : MonoBehaviour
     
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("menù");
+        SceneManager.LoadScene(0);
     }
 
 

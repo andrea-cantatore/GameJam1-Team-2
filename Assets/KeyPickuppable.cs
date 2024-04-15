@@ -34,6 +34,7 @@ public class KeyPickuppable : MonoBehaviour
         if (other.TryGetComponent(out IPlayer playerInterface))
         {
             Debug.Log("Key Obtained");
+            EventManager.OnKeyCollected?.Invoke();
             transform.position = new Vector3(0, -100, 0);
             
             if(_door.TryGetComponent(out IInteract door))
