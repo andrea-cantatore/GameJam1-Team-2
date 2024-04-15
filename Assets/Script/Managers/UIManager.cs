@@ -249,6 +249,11 @@ public class UIManager : MonoBehaviour
         emptyKey.SetActive(false);
         keyObtained.SetActive(true);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
     
 
