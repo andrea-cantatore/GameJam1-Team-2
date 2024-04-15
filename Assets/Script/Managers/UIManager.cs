@@ -92,6 +92,7 @@ public class UIManager : MonoBehaviour
 
     public void OnPauseMenu()
     {
+        
         CameraBlur.OnBlurBg?.Invoke();
         SettingsMenu.SetActive(true);
         ControlsScreen.SetActive(false);
@@ -114,6 +115,7 @@ public class UIManager : MonoBehaviour
         SettingsMenu.SetActive(false);
         ControlsScreen.SetActive(false);
         InputManager.SwitchToPlayerInput();
+        
     }
 
     void StartResetTimer()

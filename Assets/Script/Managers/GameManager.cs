@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         _PlayerHasKey = false;
         Application.targetFrameRate = 60;
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
 
