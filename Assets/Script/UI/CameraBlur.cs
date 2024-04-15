@@ -24,12 +24,16 @@ public class CameraBlur : MonoBehaviour
     {
         OnBlurBg += TurnBlurOn;
         OnBlurOff += TurnBlurOff;
+        EventManager.OnPlayerDeath += TurnBlurOn;
+        EventManager.OnPlayerWin += TurnBlurOn;
     }
 
     private void OnDisable()
     {
         OnBlurBg -= TurnBlurOn;
         OnBlurOff -= TurnBlurOff;
+        EventManager.OnPlayerDeath -= TurnBlurOn;
+        EventManager.OnPlayerWin -= TurnBlurOn;
     }
 
 

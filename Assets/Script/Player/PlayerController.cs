@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float _dashDuration = 1f, _dashCooldown = 2f, _hiFrameDuration = 2f, _hiFrameCooldown = 5f;
     private float _dashTimer, _dash2Timer, _dashCooldownTimer, _hiFrameTimer;
-    private bool _isDashing, _isDashingAirborne, _isDashUsable = true, _isDoubleDashing, _isHiFrame, _isHiFrameUsable;
+    private bool _isDashing, _isDashingAirborne, _isDashUsable = true, _isDoubleDashing, _isHiFrame, _isHiFrameUsable = true;
 
     public bool IsGrounded => Physics.Raycast(transform.position, Vector3.down, 1.1f, _groundLayer);
 
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         if (IsGroundPounding)
             IsGroundPounding = !IsGrounded;
         if (!_isHiFrameUsable)
-            HiFrameCooldown();
+             HiFrameCooldown();
         
     }
     private void Move()
@@ -102,6 +102,12 @@ public class PlayerController : MonoBehaviour
         _isDashing = true;
         _isDashUsable = false;
         _isDashingAirborne = !IsGrounded;
+        if (_isHiFrameUsable)
+        {
+            _isHiFrame = true;
+            _isHiFrameUsable = false;
+        }
+            
     }
     public void DoubleDash()
     {
@@ -110,11 +116,21 @@ public class PlayerController : MonoBehaviour
             _rb.AddForce(transform.forward * _dashForce, ForceMode.Impulse);
             _isDashing = true;
             _isDashUsable = false;
+            if (_isHiFrameUsable)
+            {
+                _isHiFrame = true;
+                _isHiFrameUsable = false;
+            }
         }
         else if (!_isDoubleDashing)
         {
             _rb.AddForce(transform.forward * _dashForce, ForceMode.Impulse);
             _isDoubleDashing = true;
+            if (_isHiFrameUsable)
+            {
+                _isHiFrame = true;
+                _isHiFrameUsable = false;
+            }
         }
 
         _isDashingAirborne = !IsGrounded;

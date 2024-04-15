@@ -538,6 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609a645a5a4611745af742d5c766b190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _PlayerHasKey: 0
 --- !u!4 &226884871
 Transform:
   m_ObjectHideFlags: 0
@@ -1126,6 +1127,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1399166436650284040, guid: 07744f4b0bef5504c8fe0addaf330797, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890651900309712726, guid: 07744f4b0bef5504c8fe0addaf330797, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143324929689986244, guid: 07744f4b0bef5504c8fe0addaf330797, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3181471843328635677, guid: 07744f4b0bef5504c8fe0addaf330797, type: 3}
