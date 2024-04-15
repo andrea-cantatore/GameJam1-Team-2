@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     bool GameIsPaused;
     private void OnEnable()
     {
+        Time.timeScale = 1;
+        InputManager.SwitchToPlayerInput();
         EventManager.UnPauseToggle += () => GameIsPaused = false;
         InputManager.actionMap.UI_Toggle.Toggle.performed += Pause;
         InputManager.actionMap.Menu.Disable();
